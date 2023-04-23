@@ -18,6 +18,8 @@ public abstract class Trabajador {
 	
 	private int horaSalida;
 	
+	private String pruebaELIMINAR;
+	
 	
 	//M�TODOS:
 	
