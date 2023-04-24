@@ -8,7 +8,6 @@ public class Pedido {
 	
 	//ATRIBUTOS:
 	
-	private String ohl;
 	
 	//ya existe en mi BD, no lo construyo, solo busco
 	private String gerente;
