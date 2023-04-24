@@ -1,8 +1,14 @@
 package model;
 
+import java.util.List;
+
+import resources.Pair;
+
 public abstract class Trabajador {
 
 	//ATRIBUTOS:
+	
+	private Supermercado supermercado;
 	
 	private String usuario;
 	
@@ -17,13 +23,12 @@ public abstract class Trabajador {
 	private int horaEntrada;
 	
 	private int horaSalida;
-	
-	private String pruebaELIMINAR;
-	
+		
 	
 	//M�TODOS:
 	
-	public Trabajador(String user, String password, String name, String dni, float salary, int entrada, int salida) {
+	public Trabajador(Supermercado s, String user, String password, String name, String dni, float salary, int entrada, int salida) {
+		this.supermercado = s;
 		this.usuario = user;
 		this.contrasena = password;
 		this.nombre = name;
@@ -41,13 +46,44 @@ public abstract class Trabajador {
 	}
 	
 	//cualquier trabajador puede pedir que se limpie un pasillo.
-	public void solicitarLimpieza(Pasillo p) {
-		p.setSucio();
+	public void solicitarLimpieza(String idPasillo) {
+		//busco el pasillo
 		
 	}
 	
+	//gerente
+	public abstract void generarPedido(List<Pair<String, Integer>> producto, String proveedor);
 	
+	//gerente
+	public abstract void recepcionarPedido(String idPedido);
 	
+	//gerente
+	public abstract void anyadirProveedor( String NIF, String nombre, String domic, String email, int telefono, List<String> productos);
+	
+	//gerente
+	public abstract void eliminarProveedor(String idProveedor);
+
+	//gerente
+	public abstract void crearProducto( String nombre, String IDproveedor, String marca, String categoria, float precio, int unidades);
+	
+	//gerente
+	public abstract void eliminarProducto(String iD);
+	
+	//cajero
+	public abstract void crearVenta(List<Pair<String, Integer>> productos, String iDCajero);
+	
+	//cajero
+	public abstract void gestionarVenta(Venta v);
+	
+	//CRU Trabajador
+	//...anyadir
+	//...eliminar
+	
+	//reponedor
+	public abstract void reponerExistencias(List<Pair<String, Integer>> l, String categoria);
+	
+	//limpiador
+	public abstract void limpiar(String idPasillo);
 	
 	
 	

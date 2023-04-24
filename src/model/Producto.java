@@ -6,6 +6,8 @@ public class Producto {
 	
 	private String ID;
 	
+	private String nombre;
+	
 	private String IDproveedor;
 	
 	private String marca;
@@ -21,8 +23,8 @@ public class Producto {
 	
 	//Getters y setters:
 	
-	public Producto(String iD, String IDproveedor, String marca, String categoria, float precio, int unidades) {
-		super();
+	public Producto(String iD, String nombre, String IDproveedor, String marca, String categoria, float precio, int unidades) {
+		this.nombre = nombre;
 		ID = iD;
 		this.IDproveedor = IDproveedor;
 		this.marca = marca;
