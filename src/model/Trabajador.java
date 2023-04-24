@@ -42,7 +42,7 @@ public abstract class Trabajador {
 	
 	//cualquier trabajador puede pedir que se limpie un pasillo.
 	public void solicitarLimpieza(Pasillo p) {
-		
+		p.setSucio();
 		
 	}
 	
