@@ -8,6 +8,8 @@ public class Pedido {
 	
 	//ATRIBUTOS:
 	
+	private String ohl;
+	
 	//ya existe en mi BD, no lo construyo, solo busco
 	private String gerente;
 	
@@ -19,11 +21,11 @@ public class Pedido {
 	
 	private LocalTime fechaLlegada;
 		
-	//gestiono por ID del producto y luego lo CREO en mi BD, en el método de la class Supermercado.
+	//gestiono por ID del producto y luego lo CREO en mi BD, en el mÃ©todo de la class Supermercado.
 	private List<Pair<String, Integer>> productos;
 	
 	
-	//MÉTODOS:
+	//MÃ‰TODOS:
 	
 	public Pedido() {
 		
