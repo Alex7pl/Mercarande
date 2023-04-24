@@ -36,6 +36,10 @@ public class Pasillo {
 	this.limpio = false;
 	}
 	
+	public void setLimpio(){
+	this.limpio = true;
+	}
+	
 	
 	
 }
