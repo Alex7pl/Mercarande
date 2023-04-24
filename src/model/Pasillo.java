@@ -32,6 +32,9 @@ public class Pasillo {
 		return this.ocupacion;
 	}
 	
+	public void setSucio(){
+	this.limpio = false;
+	}
 	
 	
 	
