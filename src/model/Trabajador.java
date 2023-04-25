@@ -80,7 +80,7 @@ public abstract class Trabajador {
 	//...eliminar
 	
 	//reponedor
-	public abstract void reponerExistencias(List<Pair<String, Integer>> l, String categoria);
+	public abstract void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo);
 	
 	//limpiador
 	public abstract void limpiar(String idPasillo);

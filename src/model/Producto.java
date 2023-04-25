@@ -19,7 +19,7 @@ public class Producto {
 	private int unidades;
 
 	
-	//MÉTODOS:
+	//Mï¿½TODOS:
 	
 	//Getters y setters:
 	
@@ -35,6 +35,10 @@ public class Producto {
 
 	public String getProveedor() {
 		return IDproveedor;
+	}
+	
+	public String getNombre() {
+		return nombre;
 	}
 	
 	public void setProveedor(String proveedor) {

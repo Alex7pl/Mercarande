@@ -8,7 +8,7 @@ public class Reponedor extends Trabajador{
 
 	//ATRIBUTOS DEL HIJO:
 	
-	private boolean ocupado; //si el trabajador en cuestión está reponiendo
+	private boolean ocupado; //si el trabajador en cuestiï¿½n estï¿½ reponiendo
 		
 	
 	
@@ -96,9 +96,22 @@ public class Reponedor extends Trabajador{
 
 
 	@Override
-	public void reponerExistencias(List<Pair<String, Integer>> l, String categoria) {
+	public void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo) {
 		// TODO Auto-generated method stub
+		/*int i=0;
+		boolean encontrado = false;
+		while (i<)
+			*/
 		
+		//No es eficiente pero en estos bucles voy recorriendo la lista del pasillo y si 
+		//su nombre coincide con el de un l.first() aumento su cantidad.
+			for (int i=0;i<l.size();i++) {
+				for (int j = 0;j<pasillo.getListaProductos().size();j++) {
+					if (pasillo.getListaProductos().get(j).getNombre().equals(l.get(i).getFirst())){
+					pasillo.getListaProductos().get(j).setUnidades(l.get(i).getSecond());	
+					}
+				}
+			}	
 	}
 
 

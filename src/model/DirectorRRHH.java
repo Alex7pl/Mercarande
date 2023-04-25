@@ -81,7 +81,7 @@ public class DirectorRRHH extends Trabajador{
 	}
 
 	@Override
-	public void reponerExistencias(List<Pair<String, Integer>> l, String categoria) {
+	public void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo) {
 		// TODO Auto-generated method stub
 		
 	}
