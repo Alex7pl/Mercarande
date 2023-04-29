@@ -8,7 +8,7 @@ public class Pasillo {
 	//ATRIBUTOS:
 	private List <Producto> listaProductos;
 
-	private String nombre;
+	private Categoria nombre;
 	
 	private boolean limpio;
 	
@@ -18,7 +18,7 @@ public class Pasillo {
 	
 	
 	//METODOS:
-	public Pasillo(String nombre, boolean limpio, int capacidad) {
+	public Pasillo(Categoria nombre, boolean limpio, int capacidad) {
 		this.listaProductos = new ArrayList<Producto>();
 		this.nombre = nombre;
 		this.limpio = limpio;
@@ -30,7 +30,7 @@ public class Pasillo {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return nombre.toString();
 	}
 
 	public boolean isLimpio() {
@@ -59,8 +59,19 @@ public class Pasillo {
 	public void eliminarProducto(String p) {
 		//busco el producto en la lista y lo elimino con la clave 
 		
+		boolean encontrado = false;
+		int i = 0;
 		
-		
+		while(i < listaProductos.size()) {
+			
+			if(listaProductos.get(i).getID() == p) {
+				encontrado = true;
+				listaProductos.remove(i);
+			}
+			else {
+				i++;
+			}
+		}
 	}
 	
 	

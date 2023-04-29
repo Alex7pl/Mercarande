@@ -20,7 +20,7 @@ public class Proveedor {
 	
 	private List<String> productos;
 	
-	private String categoria;
+	private Categoria categoria;
 	
 	// private int puntuacion; //cada pedido recibido bien +5 puntos
 							// cada pedido recinido con productosd restants +3 puntos
@@ -30,7 +30,7 @@ public class Proveedor {
 	//MÉTODOS:
 
 	public Proveedor(String iD, String nIF, String nombre, String domicilioFiscal, String email, int telefono,
-			 String categoria) {
+			Categoria categoria) {
 		ID = iD;
 		NIF = nIF;
 		this.nombre = nombre;
@@ -95,11 +95,11 @@ public class Proveedor {
 	}
 
 	public String getCategoria() {
-		return categoria;
+		return categoria.toString();
 	}
 
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 	

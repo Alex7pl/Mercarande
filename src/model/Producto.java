@@ -12,7 +12,7 @@ public class Producto {
 	
 	private String marca;
 	
-	private String categoria;
+	private Categoria categoria;
 	
 	private float precio;
 	
@@ -23,7 +23,7 @@ public class Producto {
 	
 	//Getters y setters:
 	
-	public Producto(String iD, String nombre, String IDproveedor, String marca, String categoria, float precio, int unidades) {
+	public Producto(String iD, String nombre, String IDproveedor, String marca, Categoria categoria, float precio, int unidades) {
 		this.nombre = nombre;
 		ID = iD;
 		this.IDproveedor = IDproveedor;
@@ -31,6 +31,10 @@ public class Producto {
 		this.categoria = categoria;
 		this.precio = precio;
 		this.unidades = unidades;
+	}
+	
+	public String getID() {
+		return ID;
 	}
 
 	public String getProveedor() {
@@ -54,10 +58,10 @@ public class Producto {
 	}
 
 	public String getCategoria() {
-		return categoria;
+		return categoria.toString();
 	}
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
