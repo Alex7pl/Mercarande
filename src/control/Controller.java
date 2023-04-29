@@ -2,9 +2,11 @@ package control;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 import model.Supermercado;
 
@@ -25,9 +27,12 @@ public class Controller {
 	
 	public void cargarDatos() throws IOException {
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(DB))) {
+		try {
 			
-			supermercado.cargarDatos(br);
+			File archivo = new File(DB);
+	        Scanner scanner = new Scanner(archivo);
+	        
+			supermercado.cargarDatos(scanner);
 		} catch (IOException e) {
 			throw new IllegalArgumentException("No se han podido cargar los datos");
 		}

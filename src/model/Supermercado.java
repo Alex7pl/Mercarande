@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import resources.Pair;
 
@@ -26,7 +27,7 @@ public class Supermercado {
 	public Supermercado() {}
 	
 	
-	public void cargarDatos(BufferedReader br) {
+	public void cargarDatos(Scanner scanner) {
 		
 	}
 	
