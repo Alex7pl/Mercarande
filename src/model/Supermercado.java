@@ -1,4 +1,6 @@
 package model;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -21,17 +23,16 @@ public class Supermercado {
 		
 	
 	//M�TODOS
-	public Supermercado(Tesoreria tesoreria, HashMap<String, List<Producto>> almacen, List<Pasillo> tienda,
-			HashMap<String, Trabajador> trabajadores, List<Pedido> pedidos) {
-		this.tesoreria = tesoreria;
-		this.almacen = almacen;
-		this.tienda = tienda;
-		this.trabajadores = trabajadores;
-		this.pedidos = pedidos;
+	public Supermercado() {}
+	
+	
+	public void cargarDatos(BufferedReader br) {
+		
 	}
 	
-	
-	
+	public void guardarDatos(BufferedWriter writer) {
+		
+	}
 	
 	//Se necesita la lista de pasillos para cogerla en la clase Reponedor y poder reponer
 	List<Pasillo> getListaPasillos(){
@@ -70,7 +71,7 @@ public class Supermercado {
 		//se elimina tanto en tienda como en almacen
 	}
 	
-	void anyadirPedido(Pedido p) {
+	void anyadirPedido(Pedido p) { 
 		
 	}
 	void eliminarPedido(Pedido p) {
