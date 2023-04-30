@@ -58,15 +58,15 @@ public abstract class Trabajador {
 	public abstract void recepcionarPedido(String idPedido);
 	
 	//gerente
-	public abstract void anyadirProveedor( String NIF, String nombre, String domic, String email, int telefono, List<String> productos);
+	public abstract void anyadirProveedor( String NIF, String nombre, String domic, String email, int telefono, Categoria categoria, List<String> productos);
 	
 	//gerente
 	public abstract void eliminarProveedor(String idProveedor);
 
-	//gerente
-	public abstract void crearProducto( String nombre, String IDproveedor, String marca, String categoria, float precio, int unidades);
+	//gerente -- Si la ocupacion del pasillo es igual a su capacidad, no se crea, salta error
+	public abstract void crearProducto(String Id, String nombre, String IDproveedor, String marca, String categoria, float precio, int unidades);
 	
-	//gerente
+	//gerente -- Reduces tambien ocupacion
 	public abstract void eliminarProducto(String iD);
 	
 	//cajero

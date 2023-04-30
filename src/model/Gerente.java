@@ -1,9 +1,10 @@
 package model;
 
+import java.util.List;
+
 public class Gerente extends Trabajador{
 
 	//ATRIBUTOS:
-	private List
 	
 	
 	

@@ -18,11 +18,12 @@ public class Pasillo {
 	
 	
 	//METODOS:
-	public Pasillo(Categoria nombre, boolean limpio, int capacidad) {
+	public Pasillo(Categoria nombre, boolean limpio, int capacidad, int ocupacion) {
 		this.listaProductos = new ArrayList<Producto>();
 		this.nombre = nombre;
 		this.limpio = limpio;
 		this.capacidad = capacidad;
+		this.ocupacion = ocupacion;
 	}
 		
 	public List<Producto> getListaProductos() {

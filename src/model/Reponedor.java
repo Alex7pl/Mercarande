@@ -7,8 +7,6 @@ import resources.Pair;
 public class Reponedor extends Trabajador{
 
 	//ATRIBUTOS DEL HIJO:
-	
-	private boolean ocupado; //si el trabajador en cuesti�n est� reponiendo
 		
 	
 	

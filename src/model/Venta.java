@@ -22,14 +22,13 @@ public class Venta {
 		
 	//MÉTODOS:
 	
-	public Venta(String iD, String iDCajero, float importe, List<Pair<String, Integer>> productos) {
+	public Venta(String iD, String iDCajero, float importe, LocalDate fecha, List<Pair<String, Integer>> productos) {
 		super();
 		ID = iD;
 		IDCajero = iDCajero;
 		this.importe = importe;
-		this.fecha = LocalDate.now();
+		this.fecha = fecha;
 		this.productos = productos;
-		
 	}
 
 
