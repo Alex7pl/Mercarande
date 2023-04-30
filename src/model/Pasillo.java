@@ -74,6 +74,12 @@ public class Pasillo {
 			}
 		}
 	}
+
+	public void anyadirLista(List<Producto> productos) {
+		// TODO Auto-generated method stub
+		
+		this.listaProductos = productos;
+	}
 	
 	
 }

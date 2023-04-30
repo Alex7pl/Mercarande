@@ -16,9 +16,9 @@ public class Tesoreria {
 	
 	
 	//MÉTODOS:
-	public Tesoreria(int ingresos, int gastos) {
-		this.ingresos = ingresos;
-		this.gastos = gastos;
+	public Tesoreria() {
+		this.ingresos = 0;
+		this.gastos = 0;
 		ventas = new ArrayList<Venta>();
 		pedidos = new ArrayList<Pedido>();
 	}

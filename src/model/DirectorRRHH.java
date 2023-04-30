@@ -4,58 +4,85 @@ import java.util.List;
 
 import resources.Pair;
 
-public class DirectorRRHH {
+public class DirectorRRHH extends Trabajador{
 	
-	//ATRIBUTOS:
-	
-		private Supermercado supermercado;
-		
-		private String usuario;
-		
-		private String contrasena;
-		
-		private String nombre;
-		
-		private String DNI;
-		
-		private float salario;
-		
-		private int horaEntrada;
-		
-		private int horaSalida;
-
-	
-	
-	public DirectorRRHH(Supermercado supermercado, String usuario, String contrasena, String nombre, String dNI,
-				float salario, int horaEntrada, int horaSalida) {
-			super();
-			this.supermercado = supermercado;
-			this.usuario = usuario;
-			this.contrasena = contrasena;
-			this.nombre = nombre;
-			DNI = dNI;
-			this.salario = salario;
-			this.horaEntrada = horaEntrada;
-			this.horaSalida = horaSalida;
-		}
-
+	public DirectorRRHH(Supermercado s, String user, String password, String name, String dni, float salary,
+			int entrada, int salida) {
+		super(s, user, password, name, dni, salary, entrada, salida);
+	}
 
 	//Metodos
 	
-	public String listarTrabajadores() {
-		return null;
-	}
-	
-	
-	public void nuevoTrabajador(Supermercado s, String user, String password, String name, String dni, float salary, int entrada, int salida) {
+
+	@Override
+	public void generarPedido(List<Pair<String, Integer>> producto, String proveedor, Categoria c) {
+		// TODO Auto-generated method stub
 		
 	}
-	
-	public void eliminarTrabajador(String nombre) {
+
+
+	@Override
+	public void recepcionarPedido(String idPedido) {
+		// TODO Auto-generated method stub
 		
 	}
-	
-	public void editarTrabajador(Trabajador trabajador) {
+
+
+	@Override
+	public void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
+			Categoria categoria, List<String> productos) {
+		// TODO Auto-generated method stub
 		
 	}
+
+
+	@Override
+	public void eliminarProveedor(String idProveedor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void crearProducto(String Id, String nombre, String IDproveedor, String marca, String categoria,
+			float precio, int unidades) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void eliminarProducto(String iD) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void crearVenta(List<Pair<String, Integer>> productos, String iDCajero) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void gestionarVenta(Venta v) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void limpiar(String idPasillo) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -27,7 +27,7 @@ public class Pedido {
 	private List<Pair<String, Integer>> productos;
 
 	
-	//MÉTODOS:
+	//Mï¿½TODOS:
 	
 	public Pedido(String iDPedido, String proveedor, Categoria categoria, int precioPedido, LocalDate fechaPedido, List<Pair<String, Integer>> productos) {
 		IDPedido = iDPedido;
@@ -66,6 +66,11 @@ public class Pedido {
 
 	public List<Pair<String, Integer>> getProductos() {
 		return productos;
+	}
+
+	public String getCategoria() {
+		// TODO Auto-generated method stub
+		return categoria.toString();
 	}
 
 

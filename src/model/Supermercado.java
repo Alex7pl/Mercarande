@@ -15,11 +15,11 @@ public class Supermercado {
 	//ATRIBUTOS:
 	private Tesoreria tesoreria;
 	
-	private HashMap<String, List<Producto>> almacen;
+	private HashMap<Categoria, List<Producto>> almacen;
 	
 	private List<Pasillo> tienda;
 	
-	private HashMap<String, Trabajador> trabajadores; //identifica key<DNI> con value<Trbajador>
+	private GestionTrabajadores trabajadores;
 	
 	private List<Pedido> pedidos;
 	
@@ -72,8 +72,9 @@ public class Supermercado {
 				while(datos[0] != ".") {
 					String IDPedido = datos[0];
 					String proveedor = datos[1];
-					int precioPedido = Integer.parseInt(datos[2]);
-					LocalDate fechaPedido = LocalDate.parse(datos[3]);
+					Categoria categoria = Categoria.valueOf(datos[2]);
+					int precioPedido = Integer.parseInt(datos[3]);
+					LocalDate fechaPedido = LocalDate.parse(datos[4]);
 					List<Pair<String, Integer>> productos = new ArrayList<Pair<String, Integer>>();
 					
 					linea = scanner.nextLine();
@@ -86,7 +87,7 @@ public class Supermercado {
 						datos = linea.split(";");
 					}
 					
-					this.tesoreria.anyadirPedido(new Pedido(IDPedido, proveedor, precioPedido, fechaPedido, productos));
+					this.tesoreria.anyadirPedido(new Pedido(IDPedido, proveedor, categoria, precioPedido, fechaPedido, productos));
 					linea = scanner.nextLine();
 					datos = linea.split(";");
 				}
@@ -102,8 +103,9 @@ public class Supermercado {
 					Categoria Nombre = Categoria.valueOf(datos[0]);
 					boolean limpio = Boolean.parseBoolean(datos[1]);
 					int capacidad = Integer.parseInt(datos[2]);
+					int ocupacion = Integer.parseInt(datos[3]);
 					
-					this.tienda.add(new Pasillo(Nombre, limpio, capacidad));
+					this.tienda.add(new Pasillo(Nombre, limpio, capacidad, ocupacion));
 					linea = scanner.nextLine();
 					datos = linea.split(";");
 				}
@@ -139,18 +141,145 @@ public class Supermercado {
 					String marca = datos[3];
 					Categoria categoria = Categoria.valueOf(datos[4]);;
 					float precio = Float.parseFloat(datos[5]);
+					int UA = Integer.parseInt(datos[6]);
+					int UT = Integer.parseInt(datos[7]);
 					
+					Producto auxA = new Producto(ID, nombre, IDproveedor, marca, categoria, precio, UA);
+					Producto auxT = new Producto(ID, nombre, IDproveedor, marca, categoria, precio, UT);
 					
+					if(categoria.equals(Categoria.FRUTA_VERDURA)) {
+						
+						FVA.add(auxA);
+						FVT.add(auxT);
+					}
+					else if(categoria.equals(Categoria.CARNICERIA)) {
+						
+						CAA.add(auxA);
+						CAT.add(auxT);
+					}
+					else if(categoria.equals(Categoria.PESCADERIA)) {
+						
+						PEA.add(auxA);
+						PET.add(auxT);
+					}
+					else if(categoria.equals(Categoria.CONGELADOS)) {
+						
+						COA.add(auxA);
+						COT.add(auxT);
+					}
+					else if(categoria.equals(Categoria.BEBIDAS)) {
+						
+						BEA.add(auxA);
+						BET.add(auxT);
+					}
+					else if(categoria.equals(Categoria.HOJAR)) {
+						
+						HOA.add(auxA);
+						HOT.add(auxT);
+					}
+					
+					linea = scanner.nextLine();
+					datos = linea.split(";");
 				}
+				
+				this.almacen = new HashMap<Categoria, List<Producto>>();
+				this.almacen.put(Categoria.FRUTA_VERDURA, FVA);
+				this.almacen.put(Categoria.CARNICERIA, CAA);
+				this.almacen.put(Categoria.PESCADERIA, PEA);
+				this.almacen.put(Categoria.CONGELADOS, COA);
+				this.almacen.put(Categoria.BEBIDAS, BEA);
+				this.almacen.put(Categoria.HOJAR, HOA);
+				
+				
+				this.tienda.get(0).anyadirLista(FVT);
+				this.tienda.get(1).anyadirLista(CAT);
+				this.tienda.get(2).anyadirLista(PET);
+				this.tienda.get(3).anyadirLista(COT);
+				this.tienda.get(4).anyadirLista(BET);
+				this.tienda.get(5).anyadirLista(HOT);
+				
 			}
 			else if(linea == "TRABAJADORES") {
 				
+				this.trabajadores = new GestionTrabajadores();
+				linea = scanner.nextLine();
+				datos = linea.split(";");
+				
+				while(datos[0] != ".") {
+					
+					String tipo = datos[0];
+					String usuario = datos[1];
+					String contrasena = datos[2];
+					String nombre = datos[3];
+					String DNI = datos[4];
+					float salario = Float.parseFloat(datos[5]);
+					int horaEntrada = Integer.parseInt(datos[6]);
+					int horaSalida = Integer.parseInt(datos[7]);
+					
+					this.trabajadores.nuevoTrabajador(this, tipo, usuario, contrasena, nombre, DNI, salario, horaEntrada, horaSalida);
+					linea = scanner.nextLine();
+					datos = linea.split(";");
+				}
 			}
 			else if(linea == "PEDIDOS") {
 				
+				this.pedidos = new ArrayList<Pedido>();
+				linea = scanner.nextLine();
+				datos = linea.split(";");
+				
+				while(datos[0] != ".") {
+					String IDPedido = datos[0];
+					String proveedor = datos[1];
+					Categoria categoria = Categoria.valueOf(datos[2]);
+					int precioPedido = Integer.parseInt(datos[3]);
+					LocalDate fechaPedido = LocalDate.parse(datos[4]);
+					List<Pair<String, Integer>> productos = new ArrayList<Pair<String, Integer>>();
+					
+					linea = scanner.nextLine();
+					datos = linea.split(";");
+					
+					while(datos[0] != ".") {
+						
+						productos.add(new Pair<String, Integer>(datos[0], Integer.parseInt(datos[1])));
+						linea = scanner.nextLine();
+						datos = linea.split(";");
+					}
+					
+					this.pedidos.add(new Pedido(IDPedido, proveedor, categoria, precioPedido, fechaPedido, productos));
+					linea = scanner.nextLine();
+					datos = linea.split(";");
+				}
 			}
 			else if(linea == "PROVEEDORES") {
 				
+				this.proveedores = new ArrayList<Proveedor>();
+				linea = scanner.nextLine();
+				datos = linea.split(";");
+				
+				while(datos[0] != ".") {
+					
+					String ID = datos[0];
+					String NIF = datos[1];
+					String nombre = datos[2];
+					String domicilioFiscal = datos[3];
+					String email = datos[4];
+					int telefono = Integer.parseInt(datos[5]);
+					Categoria categoria = Categoria.valueOf(datos[6]);
+					List<String> productos = new ArrayList<String>();
+					
+					linea = scanner.nextLine();
+					datos = linea.split(";");
+					
+					while(datos[0] != ".") {
+						productos.add(datos[0]);
+						linea = scanner.nextLine();
+						datos = linea.split(";");
+					}
+					
+					this.proveedores.add(new Proveedor(ID, NIF, nombre, domicilioFiscal, email, telefono, categoria, productos));
+					linea = scanner.nextLine();
+					datos = linea.split(";");
+				}
 			}
 		}
 		
@@ -197,12 +326,6 @@ public class Supermercado {
 	public void eliminarProveedor(String Id) {
 		
 	}
-	public void anyadirTrabajador(Trabajador t) {
-		
-	}
-	public void eliminarTrabajador(String DNI) {
-		
-	}
 	
 	//reviso si hay alg�n pasillo sin reponer y mando aviso al primer reponedor disponible en ese pasillo
 	public List<Producto> buscarUnidadesaCero(String pasillo) {
@@ -231,5 +354,10 @@ public class Supermercado {
 		}
 		return productosACero;
 	}
-	
+
+
+	public List<Pedido> getListaPedidos() {
+		// TODO Auto-generated method stub
+		return this.pedidos;
+	}
 }

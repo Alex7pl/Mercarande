@@ -27,17 +27,17 @@ public class Proveedor {
 	
 
 	
-	//MÉTODOS:
+	//Mï¿½TODOS:
 
 	public Proveedor(String iD, String nIF, String nombre, String domicilioFiscal, String email, int telefono,
-			Categoria categoria) {
+			Categoria categoria, List<String> productos) {
 		ID = iD;
 		NIF = nIF;
 		this.nombre = nombre;
 		this.domicilioFiscal = domicilioFiscal;
 		this.email = email;
 		this.telefono = telefono;
-		this.productos = new ArrayList<String>();
+		this.productos = productos;
 		this.categoria = categoria;
 	}
 

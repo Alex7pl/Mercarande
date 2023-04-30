@@ -18,7 +18,7 @@ public class Cajero extends Trabajador{
 
 
 	@Override
-	public void generarPedido(List<Pair<String, Integer>> producto, String proveedor) {
+	public void generarPedido(List<Pair<String, Integer>> producto, String proveedor,Categoria c) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -29,30 +29,6 @@ public class Cajero extends Trabajador{
 		// TODO Auto-generated method stub
 		
 	}
-
-
-	@Override
-	public void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
-			List<String> productos) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void eliminarProveedor(String idProveedor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void crearProducto(String nombre, String IDproveedor, String marca, String categoria, float precio,
-			int unidades) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	@Override
 	public void eliminarProducto(String iD) {
@@ -84,6 +60,29 @@ public class Cajero extends Trabajador{
 
 	@Override
 	public void limpiar(String idPasillo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
+			Categoria categoria, List<String> productos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void eliminarProveedor(String idProveedor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void crearProducto(String Id, String nombre, String IDproveedor, String marca, String categoria,
+			float precio, int unidades) {
 		// TODO Auto-generated method stub
 		
 	}
