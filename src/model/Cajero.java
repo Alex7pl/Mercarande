@@ -12,22 +12,13 @@ import model.Pedido;
 
 public class Cajero extends Trabajador{
 
-	//Supermercado supermercado;
-	//lista de las ventas hechas por el cajero
-<<<<<<< HEAD
 	
 	public Cajero(Supermercado s, String tipo, String user, String password, String name, String dni, float salary, int entrada, int salida) {
 		super(s, tipo, user, password, name, dni, salary, entrada, salida);
-=======
-	private List<String> ventas;
-	
-	public Cajero(Supermercado s, String user, String password, String name, String dni, float salary, int entrada, int salida) {
-		super(s, user, password, name, dni, salary, entrada, salida);
->>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
-		// TODO Auto-generated constructor stub
-		
-		ventas = new ArrayList<String>();
 	}
+
+
+		// TODO Auto-generated constructor stub
 
 	public void crearVenta(List<Pair<String, Integer>> productos, String iDCajero) {
 		// TODO Auto-generated method stub
@@ -42,7 +33,6 @@ public class Cajero extends Trabajador{
 			char randomChar = caracteres.charAt(index);
 			id.append(randomChar);
 		}
-<<<<<<< HEAD
 		
 		
 		float precioVenta = 0;
@@ -59,15 +49,6 @@ public class Cajero extends Trabajador{
 		Venta venta = new Venta(id_v, iDCajero, precioVenta, date, productos);
 		//supermercado.getTesoreria().anyadirVenta(venta);
 		gestionarVenta(venta);
-=======
-		String idProd =id.toString();
-		LocalDate date = LocalDate.now();
-		Venta venta = new Venta(supermercado, idProd, iDCajero, productos, date);
-		//supermercado.getTesoreria().anyadirVenta(venta);
-		gestionarVenta(venta);
-		ventas.add(idProd);
->>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
-		
 	}
 
 
@@ -95,46 +76,9 @@ public class Cajero extends Trabajador{
 			}
 		}
 		supermercado.anyadirVenta(v);
-<<<<<<< HEAD
-		
 	}
-	
 	
 
-
-	//NO SE TOCAN
-	
-	public void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
-			List<String> productos) {
-		
-		
-	}
-	public void eliminarProveedor(String idProveedor) {
-		
-		
-	}
-	public void crearProducto(String nombre, String IDproveedor, String marca, String categoria, float precio,
-			int unidades) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void eliminarProducto(String iD) {
-		// TODO Auto-generated method stub
-		
-	}
-=======
-		
-	}
-
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	//NO SE TOCAN
 	
@@ -156,7 +100,7 @@ public class Cajero extends Trabajador{
 		// TODO Auto-generated method stub
 		
 	}
->>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
+
 	public void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo) {
 		// TODO Auto-generated method stub
 		
@@ -165,11 +109,7 @@ public class Cajero extends Trabajador{
 	}
 	public void limpiar(String idPasillo) {
 		
-<<<<<<< HEAD
-=======
-		
-		
->>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
+
 	}
 	
 	public void generarPedido(List<Pair<String, Integer>> producto, String proveedor) {

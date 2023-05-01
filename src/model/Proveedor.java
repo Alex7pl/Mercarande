@@ -125,14 +125,8 @@ public class Proveedor {
 		else{
 			throw new IllegalArgumentException("el proveedor no tiene este prodcuto");
 		}
-<<<<<<< HEAD
-=======
-
-
-		
 		//buscar el indice 
 		//y eliminar el producto en cuestion
->>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
 		
 	}
 	

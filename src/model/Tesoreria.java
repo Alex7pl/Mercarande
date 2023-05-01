@@ -15,20 +15,13 @@ public class Tesoreria {
 	
 	private List<Pedido> pedidos;
 	
-	private int numeroVentasGeneradas;
-	
-	
-<<<<<<< HEAD
-	//M TODOS:
-=======
 	//M�TODOS:
->>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
+
 	public Tesoreria() {
 		ingresos = 0;
 		gastos = 0;
 		ventas = new ArrayList<Venta>();
 		pedidos = new ArrayList<Pedido>();
-		numeroVentasGeneradas = 0;
 	}
 	
 	public int getSaldo() {
@@ -59,20 +52,6 @@ public class Tesoreria {
 		pedidos.add(p);
 		gastos += p.getPrecioPedido();
 	}
+	
+}
 
-<<<<<<< HEAD
-	
-	
-	
-}
-=======
-	public int getNumeroVentas() {
-		// TODO Auto-generated method stub
-		numeroVentasGeneradas++;
-		return numeroVentasGeneradas;
-	}
-	
-	
-	
-}
->>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
