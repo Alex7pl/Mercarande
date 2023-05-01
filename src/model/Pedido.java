@@ -23,19 +23,16 @@ public class Pedido {
 		
 	//gestiono por ID del producto y luego lo CREO en mi BD, en el método de la class Supermercado.
 	private List<Pair<String, Integer>> productos;
-	Supermercado supermercado;
 
 	
 	//M�TODOS:
 	
-	public Pedido(Supermercado s,String iDPedido, String proveedor) {
-		this.supermercado = s;
-		this.IDPedido = iDPedido;
+	public Pedido(String iDPedido2, String proveedor, int precioPedido, LocalDate date) {
+		this.IDPedido = iDPedido2;
 		this.proveedor = proveedor;
-		this.precioPedido = 0;
+		this.precioPedido = precioPedido;
 		this.productos = new ArrayList<Pair<String, Integer>>();
-		
-		this.fechaPedido = LocalDate.now();
+		this.fechaPedido = date;
 		this.fechaEsperada = fechaPedido.plusDays(10);
 	}
 
@@ -66,19 +63,8 @@ public class Pedido {
 	public List<Pair<String, Integer>> getProductos() {
 		return productos;
 	}
-	
-	public void meterProductos(List<Pair<String, Integer>> producto) {
-		int index = 0;
-		productos = producto;
-		while(index < productos.size()) {
-			Producto prod = supermercado.buscarSinCategoria(producto.get(index).getFirst());
-			precioPedido = precioPedido + producto.get(index).getSecond() * prod.getPrecio();
-		}
-		
-	}
 
 
 
 
 }
-

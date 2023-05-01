@@ -24,27 +24,37 @@ public class Cajero extends Trabajador{
 
 	public void crearVenta(List<Pair<String, Integer>> productos, String iDCajero) {
 		// TODO Auto-generated method stub
-		String id = "v" + supermercado.getTesoreria().getNumeroVentas();
-		Venta venta = new Venta(supermercado, id, iDCajero, productos);
+		int longitud = 8;
+		// caracteres que podran formar el ID
+		String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+
+		// Bucle para ir generando el ID
+		StringBuilder id = new StringBuilder(longitud);
+		for (int i = 0; i < longitud; i++) {
+			int index = (int) (Math.random() * caracteres.length());
+			char randomChar = caracteres.charAt(index);
+			id.append(randomChar);
+		}
+		String idProd =id.toString();
+		
+		Venta venta = new Venta(supermercado, idProd, iDCajero, productos);
 		//supermercado.getTesoreria().anyadirVenta(venta);
 		gestionarVenta(venta);
-		ventas.add(id);
+		ventas.add(idProd);
 		
 	}
 
 
 	@Override
 	public void gestionarVenta(Venta v) {
-		
 		for(int i = 0; i < v.getProductos().size(); i++) {
 			Producto p = supermercado.buscarSinCategoria(v.getProductos().get(i).getFirst(), true);
-			if(p.getUnidades() >= v.getProductos().get(i).getSecond()) {
+			if(p.getUnidades() > v.getProductos().get(i).getSecond()) {
 				p.setUnidades(p.getUnidades() - v.getProductos().get(i).getSecond());
 			}
 			else {
-				throw new IllegalArgumentException("no hay suficientes unidades del producto " + p.getNombre());
+				throw new IllegalArgumentException("No hay unidades suficientes");
 			}
-			
 		}
 		supermercado.anyadirVenta(v);
 		
@@ -97,6 +107,26 @@ public class Cajero extends Trabajador{
 	}
 	
 	public void recepcionarPedido(String idPedido) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void generarPedido(List<Pair<String, Integer>> producto, String proveedor, Categoria c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
+			Categoria categoria, List<String> productos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void crearProducto(String Id, String nombre, String IDproveedor, String marca, String categoria,
+			float precio, int unidades) {
 		// TODO Auto-generated method stub
 		
 	}
