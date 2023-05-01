@@ -12,3 +12,5 @@ CAMBIOS REALIZADOS
     + Añadida funcionalidad GEstionTrabajadores 
     + Clase trabajador (metodo solicitarLimpieza)
     + Clase directorRRHH
+ 01/05/2023:
+  -Alex: Añadido model 100% y arreglado problemas con model
