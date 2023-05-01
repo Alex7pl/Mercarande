@@ -7,9 +7,9 @@ import resources.Pair;
 
 public class Gerente extends Trabajador{
 
-	public Gerente(Supermercado s, String user, String password, String name, String dni, float salary, int entrada,
+	public Gerente(Supermercado s, String tipo, String user, String password, String name, String dni, float salary, int entrada,
 			int salida) {
-		super(s, user, password, name, dni, salary, entrada, salida);
+		super(s, tipo, user, password, name, dni, salary, entrada, salida);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,7 +29,7 @@ public class Gerente extends Trabajador{
 			id.append(randomChar);
 		}
 		
-		int precio= 0;
+		float precio= 0;
 		for (int i =0;i<producto.size();i++) {
 			precio = precio + producto.get(i).getSecond();
 		}
@@ -126,6 +126,28 @@ public class Gerente extends Trabajador{
 	public void limpiar(String idPasillo) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public void anyadirTrabajador(Supermercado s, String tipoUsuario, String user, String password, String name,
+			String dni, float salary, int entrada, int salida) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void eliminarTrabajador(String DNI) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Trabajador getTrabajador(String DNI) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 
 }

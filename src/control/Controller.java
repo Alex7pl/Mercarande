@@ -38,12 +38,12 @@ public class Controller {
 		}
 	}
 	
-	public void guardarDatos() throws IOException {
+	public void guardarDatos() throws Exception {
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB))) {
 			
 			supermercado.guardarDatos(writer);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			throw new IllegalArgumentException("No se han podido guardar los datos");
 		}	
 	}

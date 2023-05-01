@@ -24,27 +24,27 @@ public class GestionTrabajadores {
 		switch (tipoUsuario) {
 		case "Gerente":
 
-			t = new Gerente(s, user, password, name, dni, salary, entrada, salida);
+			t = new Gerente(s, tipoUsuario, user, password, name, dni, salary, entrada, salida);
 			break;
 
 		case "Reponedor":
 
-			t = new Reponedor(s, user, password, name, dni, salary, entrada, salida);
+			t = new Reponedor(s, tipoUsuario, user, password, name, dni, salary, entrada, salida);
 			break;
 
 		case "DirectorRRHH":
 
-			t = new Reponedor(s, user, password, name, dni, salary, entrada, salida);
+			t = new Reponedor(s, tipoUsuario, user, password, name, dni, salary, entrada, salida);
 			break;
 
 		case "Limpiador":
 
-			t = new Limpiador(s, user, password, name, dni, salary, entrada, salida);
+			t = new Limpiador(s, tipoUsuario, user, password, name, dni, salary, entrada, salida);
 			break;
 
 		case "Cajero":
 
-			t = new Cajero(s, user, password, name, dni, salary, entrada, salida);
+			t = new Cajero(s, tipoUsuario, user, password, name, dni, salary, entrada, salida);
 			break;
 
 		default:

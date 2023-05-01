@@ -8,13 +8,14 @@ import java.io.InputStream;
 import javax.swing.SwingUtilities;
 
 import control.Controller;
+import view.MainWindow;
 
 public class Mercarande {
 
 	
 	//atributos
 	
-	private static final String DIRBD = "baseDeDatos.txt";
+	private static final String DIRBD = "C:\\Users\\alexs\\eclipse-workspace\\Mercarande\\src\\resources\\BaseDeDatos.txt";
 	
 	
 	private static void startGuiMode() throws IOException {
@@ -29,6 +30,7 @@ public class Mercarande {
 			@Override
 			public void run() {
 				new MainWindow(controller);
+				
 			}
 		});
 	}

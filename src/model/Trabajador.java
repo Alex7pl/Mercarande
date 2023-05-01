@@ -9,6 +9,8 @@ public abstract class Trabajador {
 	// ATRIBUTOS:
 
 	protected Supermercado supermercado;
+	
+	protected String tipoT;
 
 	protected String usuario;
 
@@ -24,11 +26,12 @@ public abstract class Trabajador {
 
 	protected int horaSalida;
 
-	// M�TODOS:
+	// M TODOS:
 
-	public Trabajador(Supermercado s, String user, String password, String name, String dni, float salary, int entrada,
+	public Trabajador(Supermercado s, String tipo, String user, String password, String name, String dni, float salary, int entrada,
 			int salida) {
 		this.supermercado = s;
+		this.tipoT = tipo;
 		this.usuario = user;
 		this.contrasena = password;
 		this.nombre = name;
@@ -92,7 +95,17 @@ public abstract class Trabajador {
 
 	// limpiador
 	public abstract void limpiar(String idPasillo);
-	
+
+	// directorRRHH
+	public abstract void anyadirTrabajador(Supermercado s, String tipoUsuario, String user, String password,
+			String name, String dni, float salary, int entrada, int salida);
+
+	// directorRRHH
+	public abstract void eliminarTrabajador(String DNI);
+
+	// directorRRHH
+	public abstract Trabajador getTrabajador(String DNI);
+
 	public String getUsuario() {
 		return usuario;
 	}
@@ -120,5 +133,9 @@ public abstract class Trabajador {
 	public int getHoraSalida() {
 		return horaSalida;
 	}
+
+	public String getTipo() {
+		return this.tipoT;
+	};
 
 }

@@ -6,14 +6,14 @@ import resources.Pair;
 
 public class Limpiador extends Trabajador {
 
-	public Limpiador(Supermercado s, String user, String password, String name, String dni, float salary, int entrada,
+	public Limpiador(Supermercado s, String tipo, String user, String password, String name, String dni, float salary, int entrada,
 			int salida) {
-		super(s, user, password, name, dni, salary, entrada, salida);
+		super(s, tipo, user, password, name, dni, salary, entrada, salida);
 		// TODO Auto-generated constructor stub
 	}
 
 	public void limpiar(Pasillo p) {
-
+		p.limpiar();
 	}
 
 	@Override
@@ -76,6 +76,25 @@ public class Limpiador extends Trabajador {
 			Categoria categoria, List<String> productos) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void anyadirTrabajador(Supermercado s, String tipoUsuario, String user, String password, String name,
+			String dni, float salary, int entrada, int salida) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminarTrabajador(String DNI) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Trabajador getTrabajador(String DNI) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

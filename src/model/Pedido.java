@@ -15,7 +15,7 @@ public class Pedido {
 	
 	private Categoria categoria;
 	
-	private int precioPedido;
+	private float precioPedido;
 	
 	//clase de java.time para gestionar las fechas. LocalTime tiene comparadores, sumadores y actualizadores para 
 	//las fechas:
@@ -29,7 +29,7 @@ public class Pedido {
 	
 	//M�TODOS:
 	
-	public Pedido(String iDPedido, String proveedor, Categoria categoria, int precioPedido, LocalDate fechaPedido, List<Pair<String, Integer>> productos) {
+	public Pedido(String iDPedido, String proveedor, Categoria categoria, float precioPedido, LocalDate fechaPedido, List<Pair<String, Integer>> productos) {
 		IDPedido = iDPedido;
 		this.proveedor = proveedor;
 		this.categoria = categoria;
@@ -60,7 +60,7 @@ public class Pedido {
 	}
 
 
-	public int getPrecioPedido() {
+	public float getPrecioPedido() {
 		return precioPedido;
 	}
 

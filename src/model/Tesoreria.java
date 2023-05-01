@@ -14,13 +14,16 @@ public class Tesoreria {
 	
 	private List<Pedido> pedidos;
 	
+	private int numeroVentasGeneradas;
 	
-	//MÉTODOS:
+	
+	//M TODOS:
 	public Tesoreria() {
-		this.ingresos = 0;
-		this.gastos = 0;
+		ingresos = 0;
+		gastos = 0;
 		ventas = new ArrayList<Venta>();
 		pedidos = new ArrayList<Pedido>();
+		numeroVentasGeneradas = 0;
 	}
 	
 	public int getSaldo() {
@@ -51,13 +54,7 @@ public class Tesoreria {
 		pedidos.add(p);
 		gastos += p.getPrecioPedido();
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

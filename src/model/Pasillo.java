@@ -54,6 +54,10 @@ public class Pasillo {
 		this.limpio = true;
 	}
 	
+	public void cambiarOcupacion(int n) {
+		this.ocupacion += n;
+	}
+	
 	public void anyadirProducto(Producto p) {
 		listaProductos.add(p);
 	}
@@ -63,7 +67,7 @@ public class Pasillo {
 		boolean encontrado = false;
 		int i = 0;
 		
-		while(i < listaProductos.size()) {
+		while(!encontrado && i < listaProductos.size()) {
 			
 			if(listaProductos.get(i).getID() == p) {
 				encontrado = true;
@@ -73,6 +77,21 @@ public class Pasillo {
 				i++;
 			}
 		}
+	}
+	
+	public Producto getProducto(String id) {
+		Producto p = null;
+		boolean encontrado = false;
+		int i = 0;
+		
+		while(!encontrado && i < this.listaProductos.size()) {
+			if(listaProductos.get(i).getID() == id) {
+				encontrado = true;
+				p = listaProductos.get(i);
+			}
+		}
+		
+		return p;
 	}
 
 	public void anyadirLista(List<Producto> productos) {

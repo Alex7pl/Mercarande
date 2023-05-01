@@ -19,10 +19,8 @@ public class Producto {
 	private int unidades;
 
 	
-	//Mï¿½TODOS:
-	
-	//Getters y setters:
-	
+	//MÉTODOS:
+		
 	public Producto(String iD, String nombre, String IDproveedor, String marca, Categoria categoria, float precio, int unidades) {
 		this.nombre = nombre;
 		ID = iD;
@@ -32,6 +30,17 @@ public class Producto {
 		this.precio = precio;
 		this.unidades = unidades;
 	}
+	// constructor para copia 
+	public Producto(Producto p) {
+		this.nombre = p.getID();
+		this.ID = p.getID();
+		this.IDproveedor = p.getProveedor();
+		this.marca = p.getMarca();
+		this.categoria = Categoria.valueOf(p.getCategoria());
+		this.precio = p.getPrecio();
+		this.unidades = p.getUnidades();
+	}
+	
 	
 	public String getID() {
 		return ID;
@@ -80,15 +89,4 @@ public class Producto {
 	public void setUnidades(int unidades) {
 		this.unidades += unidades;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

@@ -12,7 +12,7 @@ public class Venta {
 	private String ID;
 	
 	private String IDCajero;
-
+	
 	private float importe;
 	
 	private LocalDate fecha;
@@ -20,27 +20,27 @@ public class Venta {
 	private List<Pair<String, Integer>> productos;
 
 		
-	//MÉTODOS:
-	
-	public Venta(String iD, String iDCajero, float importe, LocalDate fecha, List<Pair<String, Integer>> productos) {
-		super();
-		ID = iD;
-		IDCajero = iDCajero;
+	//METODOS:
+	public Venta(String iD, String iDCajero, float importe, LocalDate date, List<Pair<String, Integer>> productos) {
+		this.ID = iD;
+		this.IDCajero = iDCajero;
 		this.importe = importe;
-		this.fecha = fecha;
+		this.fecha = date;
 		this.productos = productos;
+		
 	}
-
 
 	public String getID() {
 		return ID;
 	}
 
-
 	public String getIDCajero() {
 		return IDCajero;
 	}
-
+	
+	public LocalDate getFecha() {
+		return this.fecha;
+	}
 
 	public float getImporte() {
 		return importe;
@@ -49,13 +49,5 @@ public class Venta {
 	public List<Pair<String, Integer>> getProductos() {
 		return productos;
 	}
-
-
-	
-	
-	
-	
-	
-	
-
 }
+
