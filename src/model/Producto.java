@@ -87,6 +87,11 @@ public class Producto {
 	}
 
 	public void setUnidades(int unidades) {
-		this.unidades += unidades;
+		this.unidades = unidades;
 	}
+<<<<<<< HEAD
 }
+=======
+	
+}
+>>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a

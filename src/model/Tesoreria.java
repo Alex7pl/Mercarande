@@ -1,3 +1,4 @@
+
 package model;
 
 import java.util.ArrayList;
@@ -17,7 +18,11 @@ public class Tesoreria {
 	private int numeroVentasGeneradas;
 	
 	
+<<<<<<< HEAD
 	//M TODOS:
+=======
+	//M�TODOS:
+>>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
 	public Tesoreria() {
 		ingresos = 0;
 		gastos = 0;
@@ -55,7 +60,19 @@ public class Tesoreria {
 		gastos += p.getPrecioPedido();
 	}
 
+<<<<<<< HEAD
 	
 	
 	
 }
+=======
+	public int getNumeroVentas() {
+		// TODO Auto-generated method stub
+		numeroVentasGeneradas++;
+		return numeroVentasGeneradas;
+	}
+	
+	
+	
+}
+>>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a

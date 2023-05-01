@@ -13,8 +13,11 @@ public class Pedido {
 		
 	private String proveedor;
 	
+<<<<<<< HEAD
 	private Categoria categoria;
 	
+=======
+>>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
 	private float precioPedido;
 	
 	//clase de java.time para gestionar las fechas. LocalTime tiene comparadores, sumadores y actualizadores para 
@@ -29,14 +32,17 @@ public class Pedido {
 	
 	//M�TODOS:
 	
+<<<<<<< HEAD
 	public Pedido(String iDPedido, String proveedor, Categoria categoria, float precioPedido, LocalDate fechaPedido, List<Pair<String, Integer>> productos) {
 		IDPedido = iDPedido;
+=======
+	public Pedido(String iDPedido2, String proveedor, int precioPedido, LocalDate date) {
+		this.IDPedido = iDPedido2;
+>>>>>>> baa3ac873bf87dad449408b4ddf397cb1d2b3d3a
 		this.proveedor = proveedor;
-		this.categoria = categoria;
 		this.precioPedido = precioPedido;
-		this.productos = productos;
-		
-		this.fechaPedido = fechaPedido;
+		this.productos = new ArrayList<Pair<String, Integer>>();
+		this.fechaPedido = date;
 		this.fechaEsperada = fechaPedido.plusDays(10);
 	}
 
@@ -66,11 +72,6 @@ public class Pedido {
 
 	public List<Pair<String, Integer>> getProductos() {
 		return productos;
-	}
-
-	public String getCategoria() {
-		// TODO Auto-generated method stub
-		return categoria.toString();
 	}
 
 
