@@ -12,6 +12,8 @@ public class Venta {
 	private String ID;
 	
 	private String IDCajero;
+	
+	private Supermercado supermercado;
 
 	private float importe;
 	
@@ -20,15 +22,17 @@ public class Venta {
 	private List<Pair<String, Integer>> productos;
 
 		
-	//MÉTODOS:
+	//Mï¿½TODOS:
 	
-	public Venta(String iD, String iDCajero, float importe, LocalDate fecha, List<Pair<String, Integer>> productos) {
+	public Venta(Supermercado s, String iD, String iDCajero, List<Pair<String, Integer>> productos) {
 		super();
-		ID = iD;
-		IDCajero = iDCajero;
-		this.importe = importe;
-		this.fecha = fecha;
+		this.supermercado = s;
+		this.ID = iD;
+		this.IDCajero = iDCajero;
+		calcularCoste();
+		this.fecha = LocalDate.now();
 		this.productos = productos;
+		
 	}
 
 
@@ -49,13 +53,13 @@ public class Venta {
 	public List<Pair<String, Integer>> getProductos() {
 		return productos;
 	}
-
-
-	
-	
-	
-	
-	
-	
-
+	public void calcularCoste() {
+		float precioPedido = 0;
+		int index = 0;
+		while(index < productos.size()) {
+			Producto prod = supermercado.buscarSinCategoria(productos.get(index).getFirst(), true);
+			precioPedido = precioPedido + productos.get(index).getSecond() * prod.getPrecio();
+		}
+		importe = precioPedido;
+	}
 }

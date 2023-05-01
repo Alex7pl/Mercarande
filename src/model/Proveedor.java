@@ -31,8 +31,8 @@ public class Proveedor {
 
 	public Proveedor(String iD, String nIF, String nombre, String domicilioFiscal, String email, int telefono,
 			Categoria categoria, List<String> productos) {
-		ID = iD;
-		NIF = nIF;
+		this.ID = iD;
+		this.NIF = nIF;
 		this.nombre = nombre;
 		this.domicilioFiscal = domicilioFiscal;
 		this.email = email;
@@ -105,10 +105,28 @@ public class Proveedor {
 	
 	public void anyadirProducto(String idP) {
 		this.productos.add(idP);
+
+
 	}
 	public void eliminarProducto(String idP) {
-		int index;
+		int index = 0;
 		boolean encontrado = false;
+		while(!encontrado && index < productos.size()){
+			if(productos.get(index) ==  idP){
+				encontrado = true;
+			}
+			else{
+				index++;
+			}
+		}
+		if(encontrado){
+			productos.remove(index);
+		}
+		else{
+			throw new IllegalArgumentException("el proveedor no tiene este prodcuto");
+		}
+
+
 		
 		//buscar el indice 
 		//y eliminar el producto en cuestion

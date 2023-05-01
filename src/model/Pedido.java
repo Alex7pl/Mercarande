@@ -13,9 +13,7 @@ public class Pedido {
 		
 	private String proveedor;
 	
-	private Categoria categoria;
-	
-	private int precioPedido;
+	private float precioPedido;
 	
 	//clase de java.time para gestionar las fechas. LocalTime tiene comparadores, sumadores y actualizadores para 
 	//las fechas:
@@ -25,18 +23,19 @@ public class Pedido {
 		
 	//gestiono por ID del producto y luego lo CREO en mi BD, en el método de la class Supermercado.
 	private List<Pair<String, Integer>> productos;
+	Supermercado supermercado;
 
 	
 	//M�TODOS:
 	
-	public Pedido(String iDPedido, String proveedor, Categoria categoria, int precioPedido, LocalDate fechaPedido, List<Pair<String, Integer>> productos) {
-		IDPedido = iDPedido;
+	public Pedido(Supermercado s,String iDPedido, String proveedor) {
+		this.supermercado = s;
+		this.IDPedido = iDPedido;
 		this.proveedor = proveedor;
-		this.categoria = categoria;
-		this.precioPedido = precioPedido;
-		this.productos = productos;
+		this.precioPedido = 0;
+		this.productos = new ArrayList<Pair<String, Integer>>();
 		
-		this.fechaPedido = fechaPedido;
+		this.fechaPedido = LocalDate.now();
 		this.fechaEsperada = fechaPedido.plusDays(10);
 	}
 
@@ -60,20 +59,26 @@ public class Pedido {
 	}
 
 
-	public int getPrecioPedido() {
+	public float getPrecioPedido() {
 		return precioPedido;
 	}
 
 	public List<Pair<String, Integer>> getProductos() {
 		return productos;
 	}
-
-	public String getCategoria() {
-		// TODO Auto-generated method stub
-		return categoria.toString();
+	
+	public void meterProductos(List<Pair<String, Integer>> producto) {
+		int index = 0;
+		productos = producto;
+		while(index < productos.size()) {
+			Producto prod = supermercado.buscarSinCategoria(producto.get(index).getFirst());
+			precioPedido = precioPedido + producto.get(index).getSecond() * prod.getPrecio();
+		}
+		
 	}
 
 
 
 
 }
+
