@@ -5,10 +5,14 @@ import java.util.List;
 import resources.Pair;
 
 public class DirectorRRHH extends Trabajador {
+	
+	private GestionSuperMercado gestion;
 
-	public DirectorRRHH(Supermercado s, String tipo, String user, String password, String name, String dni, float salary,
+	public DirectorRRHH(GestionSuperMercado gestion, Supermercado s, String tipo, String user, String password, String name, String dni, float salary,
 			int entrada, int salida) {
 		super(s, tipo, user, password, name, dni, salary, entrada, salida);
+		
+		this.gestion = gestion;
 	}
 
 	// Metodos
@@ -78,18 +82,17 @@ public class DirectorRRHH extends Trabajador {
 	@Override
 	public void anyadirTrabajador(Supermercado s, String tipoUsuario, String user, String password, String name,
 			String dni, float salary, int entrada, int salida) {
-		supermercado.getTrabajadores().nuevoTrabajador(s, tipoUsuario, user, password, name, dni, salary, entrada, salida);
+		this.gestion.nuevoTrabajador(tipoUsuario, user, password, name, dni, salary, entrada, salida);
 	}
 
 	@Override
 	public void eliminarTrabajador(String DNI) {
-		supermercado.getTrabajadores().eliminarTrabajador(DNI);
+		this.gestion.eliminarTrabajador(DNI);
 		
 	}
 
-	@Override
 	public Trabajador getTrabajador(String DNI) {
-		return supermercado.getTrabajadores().getTrabajador(DNI);
+		return this.gestion.getTrabajador(DNI);
 	}
 
 }

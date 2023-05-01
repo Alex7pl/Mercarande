@@ -5,6 +5,9 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 
 public class ReponedorWindow extends JFrame {
+	
+	
+	
     public ReponedorWindow() {
         setTitle("Ventana Reponedor");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

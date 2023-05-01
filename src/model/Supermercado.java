@@ -14,13 +14,15 @@ import resources.Pair;
 public class Supermercado {
 
 	//ATRIBUTOS:
+	private static Supermercado instance = null;
+	
 	private Tesoreria tesoreria;
 	
 	private HashMap<Categoria, List<Producto>> almacen;
 	
 	private List<Pasillo> tienda;
 	
-	private GestionTrabajadores trabajadores;
+	//private GestionSuperMercado trabajadores;
 	
 	private List<Pedido> pedidos_pendientes;
 	
@@ -28,8 +30,14 @@ public class Supermercado {
 		
 	
 	//M�TODOS
-	public Supermercado() {}
+	private Supermercado() {}
 	
+	public static synchronized Supermercado getInstance() {
+        if (instance == null) {
+            instance = new Supermercado();
+        }
+        return instance;
+    }
 	
 	public void cargarDatos(Scanner scanner) {
 		
@@ -200,28 +208,6 @@ public class Supermercado {
 				this.tienda.get(5).anyadirLista(HOT);
 				
 			}
-			else if(linea.equals("TRABAJADORES")) {
-				
-				this.trabajadores = new GestionTrabajadores();
-				linea = scanner.nextLine();
-				datos = linea.split(";");
-				
-				while(!datos[0].equals(".")) {
-					
-					String tipo = datos[0];
-					String usuario = datos[1];
-					String contrasena = datos[2];
-					String nombre = datos[3];
-					String DNI = datos[4];
-					float salario = Float.parseFloat(datos[5]);
-					int horaEntrada = Integer.parseInt(datos[6]);
-					int horaSalida = Integer.parseInt(datos[7]);
-					
-					this.trabajadores.nuevoTrabajador(this, tipo, usuario, contrasena, nombre, DNI, salario, horaEntrada, horaSalida);
-					linea = scanner.nextLine();
-					datos = linea.split(";");
-				}
-			}
 			else if(linea.equals("PEDIDOS")) {
 				
 				this.pedidos_pendientes = new ArrayList<Pedido>();
@@ -351,18 +337,6 @@ public class Supermercado {
 				writer.write(this.almacen.get(Categoria.valueOf(p.getNombre())).get(i).getUnidades());
 				writer.newLine();
 			}
-		}
-		
-		writer.write(".");
-		writer.newLine();
-		
-		writer.write("TRABAJADORES");
-		writer.newLine();
-		
-		for(Trabajador t : this.trabajadores.listarTrabajadores()) {
-			
-			writer.write(t.getTipo() + ";" + t.getUsuario() + ";" + t.getContrasena() + ";" + t.getNombre() + ";" + t.getDNI() + ";" + t.getSalario() + ";" + t.getHoraEntrada() + ";" + t.getHoraSalida());
-			writer.newLine();
 		}
 		
 		writer.write(".");
@@ -647,11 +621,5 @@ public class Supermercado {
 	public List<Pedido> getListaPedidos() {
 		// TODO Auto-generated method stub
 		return this.pedidos_pendientes;
-	}
-
-
-	public GestionTrabajadores getTrabajadores() {
-		// TODO Auto-generated method stub
-		return this.trabajadores;
 	}
 }

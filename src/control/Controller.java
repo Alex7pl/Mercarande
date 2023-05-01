@@ -8,20 +8,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import model.Supermercado;
+import model.GestionSuperMercado;
 
 public class Controller {
 	
 	//Atributos
 	
-	private Supermercado supermercado;
+	private GestionSuperMercado gestion;
 	private String DB;
 	
 	//Constructor
 	
 	public Controller(String DB) {
 		
-		supermercado = new Supermercado();
+		gestion = GestionSuperMercado.getInstance();
 		this.DB = DB;
 	}
 	
@@ -32,7 +32,7 @@ public class Controller {
 			File archivo = new File(DB);
 	        Scanner scanner = new Scanner(archivo);
 	        
-			supermercado.cargarDatos(scanner);
+			gestion.cargarDatos(scanner);
 		} catch (IOException e) {
 			throw new IllegalArgumentException("No se han podido cargar los datos");
 		}
@@ -42,7 +42,7 @@ public class Controller {
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB))) {
 			
-			supermercado.guardarDatos(writer);
+			gestion.guardarDatos(writer);
 		} catch (Exception e) {
 			throw new IllegalArgumentException("No se han podido guardar los datos");
 		}	
