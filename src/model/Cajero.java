@@ -53,6 +53,8 @@ public class Cajero extends Trabajador{
 			if(p.getUnidades() > v.getProductos().get(i).getSecond()) {
 				p.setUnidades(p.getUnidades() - v.getProductos().get(i).getSecond());
 				String pasillo = p.getCategoria();
+				
+				/*
 				int index = 0;
 				boolean encontrado = false;
 				while(!encontrado && index < supermercado.getListaPasillos().size()) {
@@ -60,6 +62,7 @@ public class Cajero extends Trabajador{
 						supermercado.getListaPasillos().get(index).reducirOcupacion(v.getProductos().get(i).getSecond());
 					}
 				}
+				*/
 				
 			}
 			else {
