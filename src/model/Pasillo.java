@@ -80,6 +80,9 @@ public class Pasillo {
 		
 		this.listaProductos = productos;
 	}
+	public void reducirOcupacion(int i) {
+		ocupacion = ocupacion - i;
+	}
 	
 	
 }

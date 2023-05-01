@@ -51,6 +51,15 @@ public class Cajero extends Trabajador{
 			Producto p = supermercado.buscarSinCategoria(v.getProductos().get(i).getFirst(), true);
 			if(p.getUnidades() > v.getProductos().get(i).getSecond()) {
 				p.setUnidades(p.getUnidades() - v.getProductos().get(i).getSecond());
+				String pasillo = p.getCategoria();
+				int index = 0;
+				boolean encontrado = false;
+				while(!encontrado && index < supermercado.getListaPasillos().size()) {
+					if(pasillo == supermercado.getListaPasillos().get(index).getNombre()) {
+						supermercado.getListaPasillos().get(index).reducirOcupacion(v.getProductos().get(i).getSecond());
+					}
+				}
+				
 			}
 			else {
 				throw new IllegalArgumentException("No hay unidades suficientes");

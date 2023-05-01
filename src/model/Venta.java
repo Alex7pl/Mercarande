@@ -24,7 +24,7 @@ public class Venta {
 		
 	//M�TODOS:
 	
-	public Venta(Supermercado s, String iD, String iDCajero, List<Pair<String, Integer>> productos, LocalDate date) {
+	public Venta(Supermercado s, String iD, String iDCajero, List<Pair<String, Integer>> productos) {
 		super();
 		this.supermercado = s;
 		this.ID = iD;
