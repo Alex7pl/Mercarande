@@ -24,13 +24,13 @@ public class Venta {
 		
 	//M�TODOS:
 	
-	public Venta(Supermercado s, String iD, String iDCajero, List<Pair<String, Integer>> productos) {
+	public Venta(Supermercado s, String iD, String iDCajero, List<Pair<String, Integer>> productos, LocalDate date) {
 		super();
 		this.supermercado = s;
 		this.ID = iD;
 		this.IDCajero = iDCajero;
 		calcularCoste();
-		this.fecha = LocalDate.now();
+		this.fecha = date;
 		this.productos = productos;
 		
 	}

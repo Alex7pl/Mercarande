@@ -1,5 +1,6 @@
 	package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +37,8 @@ public class Cajero extends Trabajador{
 			id.append(randomChar);
 		}
 		String idProd =id.toString();
-		
-		Venta venta = new Venta(supermercado, idProd, iDCajero, productos);
+		LocalDate date = LocalDate.now();
+		Venta venta = new Venta(supermercado, idProd, iDCajero, productos, date);
 		//supermercado.getTesoreria().anyadirVenta(venta);
 		gestionarVenta(venta);
 		ventas.add(idProd);
