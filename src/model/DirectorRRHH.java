@@ -6,9 +6,9 @@ import resources.Pair;
 
 public class DirectorRRHH extends Trabajador {
 	
-	private GestionSuperMercado gestion;
+	private GestionMercado gestion;
 
-	public DirectorRRHH(GestionSuperMercado gestion, Supermercado s, String tipo, String user, String password, String name, String dni, float salary,
+	public DirectorRRHH(GestionMercado gestion, Supermercado s, String tipo, String user, String password, String name, String dni, float salary,
 			int entrada, int salida) {
 		super(s, tipo, user, password, name, dni, salary, entrada, salida);
 		

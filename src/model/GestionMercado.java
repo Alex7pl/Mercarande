@@ -5,13 +5,13 @@ import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.util.ArrayList;
 
-public class GestionSuperMercado {
+public class GestionMercado {
 	
-	private static GestionSuperMercado instance = null;
+	private static GestionMercado instance = null;
 	private List<Trabajador> trabajadores;
 	private Supermercado supermer;
 
-	private GestionSuperMercado() {
+	private GestionMercado() {
 		trabajadores = new ArrayList<Trabajador>();
 		supermer = Supermercado.getInstance();
 	}
@@ -20,9 +20,9 @@ public class GestionSuperMercado {
 		return trabajadores;
 	}
 	
-	public static synchronized GestionSuperMercado getInstance() {
+	public static synchronized GestionMercado getInstance() {
         if (instance == null) {
-            instance = new GestionSuperMercado();
+            instance = new GestionMercado();
         }
         return instance;
     }

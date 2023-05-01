@@ -8,20 +8,21 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import model.GestionSuperMercado;
+import model.GestionMercado;
+
 
 public class Controller {
 	
 	//Atributos
 	
-	private GestionSuperMercado gestion;
+	private GestionMercado gestion;
 	private String DB;
 	
 	//Constructor
 	
 	public Controller(String DB) {
 		
-		gestion = GestionSuperMercado.getInstance();
+		gestion = GestionMercado.getInstance();
 		this.DB = DB;
 	}
 	
