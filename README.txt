@@ -14,3 +14,6 @@ CAMBIOS REALIZADOS
     + Clase directorRRHH
  01/05/2023:
   -Alex: Añadido model 100% y arreglado problemas con model
+  -Dani:
+    + Nuevos métodos en 'GestionTrabajadores' para el inicio de sesion
+    + MainWiindow -> inicio sesion
