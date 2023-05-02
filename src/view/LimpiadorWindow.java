@@ -1,19 +1,31 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class LimpiadorWindow  extends JFrame {
-    public LimpiadorWindow() {
-        setTitle("Ventana Limpiador");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLayout(new FlowLayout());
+import control.Controller;
 
-        // Agrega los componentes de la ventana
-        // ...
+public class LimpiadorWindow  extends JPanel {
+	
+	private Controller ctrl;
+    private String DNIT;
+    private CardLayout cardLayout;
+    private JPanel mainPanel;
 
-        pack();
-        setLocationRelativeTo(null);
-    }
+public LimpiadorWindow(String DNIT, Controller ctrl, CardLayout cardLayout, JPanel mainPanel) {
+	this.ctrl = ctrl;
+	this.DNIT = DNIT;
+	this.cardLayout = cardLayout;
+    this.mainPanel = mainPanel;
+    setLayout(new BorderLayout());
+    initGUI();
+}
+
+private void initGUI() {
+	
+}
 }

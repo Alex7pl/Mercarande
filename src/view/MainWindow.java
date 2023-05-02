@@ -1,73 +1,32 @@
 package view;
 
-import javax.swing.*;
-
 import control.Controller;
 
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainWindow extends JFrame {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private Controller ctrl;
+    private static final long serialVersionUID = 1L;
+    private Controller ctrl;
+    private CardLayout cardLayout;
+    private JPanel mainPanel;
 
-	public MainWindow(Controller ctrl) {
-		this.ctrl = ctrl;
+    public MainWindow(Controller ctrl) {
+        this.ctrl = ctrl;
         setTitle("Ventana Principal");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
 
-        JButton directorRRHHButton = new JButton("DirectorRRHH");
-        directorRRHHButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new DirectorRRHHWindow().setVisible(true);
-            }
-        });
-        add(directorRRHHButton);
+        cardLayout = new CardLayout();
+        mainPanel = new JPanel(cardLayout);
 
-        JButton gerenteButton = new JButton("Gerente");
-        gerenteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new GerenteWindow().setVisible(true);
-            }
-        });
-        add(gerenteButton);
+        LoginPanel loginPanel = new LoginPanel(ctrl, cardLayout, mainPanel);
+        mainPanel.add(loginPanel, "loginPanel");
 
-        JButton reponedorButton = new JButton("Reponedor");
-        reponedorButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new ReponedorWindow().setVisible(true);
-            }
-        });
-        add(reponedorButton);
-
-        JButton cajeroButton = new JButton("Cajero");
-        cajeroButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new CajeroWindow().setVisible(true);
-            }
-        });
-        add(cajeroButton);
-
-        JButton limpiadorButton = new JButton("Limpiador");
-        limpiadorButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new LimpiadorWindow().setVisible(true);
-            }
-        });
-        add(limpiadorButton);
-
+        setContentPane(mainPanel);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+        setSize(new Dimension(1200, 800));
     }
 }

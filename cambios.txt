@@ -1,0 +1,51 @@
+CAMBIOS EN:
+
+- MainWindow
+- Controller
+- GestionMercado
+- Añadido resources 
+	+ logo mercarande
+	+ logo home
+- Trabajador (nuevos getters)
+
+METODOS CONTROLLER
+
+- comprobarEsTrabajador(String user)
+- comprobarCredencialesCorrectas(String user, String password)
+- getTrabajadorConUsuario(String user)
+- getTrabajadorConDNI(String dni)
+- eliminarTrabajador(String DNI)
+- getTrabajadores()
+- modificarTrabajador(String tipoUsuario, String nombre, String dni, float salary, int entrada, int salida)
+
+
+METODOS GESTIONMERCADO
+
+* modificados *
+- getTrabajador(String DNI) 
+- eliminarTrabajador(String DNI)
+
+* nuevos *
+- esTrabajador(String user)
+- credencialesCorrectas(String user, String password)
+- getTrabajadorConUsuario(String user)
+- getTrabajadores()
+- modificarTrabajador(String tipoUsuario, String nombre, String dni, float salary, int entrada, int salida)
+
+
+NUEVAS CLASES:
+
+- RRHHModificarTrabajadores
+- RRHHMostrarTrabajadores
+- RRHHNuevoTrabajador
+- TopPanel
+- LoginPanel
+
+CAMBIOS ALEX EN:
+
+-Venta (Arreglado)
+-TopPanel
+-Pedido (Arreglado)
+-Supermercado (Arreglado)
+
+Funcionalidad TopPanel: Añadido poder guardar los datos al cerrar la sesión

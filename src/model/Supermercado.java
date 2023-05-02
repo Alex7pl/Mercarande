@@ -82,7 +82,7 @@ public class Supermercado {
 					String IDPedido = datos[0];
 					String proveedor = datos[1];
 					Categoria categoria = Categoria.valueOf(datos[2]);
-					int precioPedido = Integer.parseInt(datos[3]);
+					float precioPedido = Float.parseFloat(datos[3]);
 					LocalDate fechaPedido = LocalDate.parse(datos[4]);
 					List<Pair<String, Integer>> productos = new ArrayList<Pair<String, Integer>>();
 					
@@ -218,7 +218,7 @@ public class Supermercado {
 					String IDPedido = datos[0];
 					String proveedor = datos[1];
 					Categoria categoria = Categoria.valueOf(datos[2]);
-					int precioPedido = Integer.parseInt(datos[3]);
+					float precioPedido = Float.parseFloat(datos[3]);
 					LocalDate fechaPedido = LocalDate.parse(datos[4]);
 					List<Pair<String, Integer>> productos = new ArrayList<Pair<String, Integer>>();
 					
@@ -332,9 +332,10 @@ public class Supermercado {
 			for(int i = 0; i < p.getListaProductos().size(); i++) {
 				
 				Producto pr = p.getListaProductos().get(i);
+				List<Producto> listaAux = this.almacen.get(Categoria.valueOf(p.getNombre()));
+				Producto aux = listaAux.get(i);
 				
-				writer.write(pr.getID() + ";" + pr.getNombre() + ";" + pr.getProveedor() + ";" + pr.getMarca() + ";" + pr.getCategoria() + ";" + pr.getPrecio() + ";" + pr.getUnidades() + ";");
-				writer.write(this.almacen.get(Categoria.valueOf(p.getNombre())).get(i).getUnidades());
+				writer.write(pr.getID() + ";" + pr.getNombre() + ";" + pr.getProveedor() + ";" + pr.getMarca() + ";" + pr.getCategoria() + ";" + pr.getPrecio() + ";" + pr.getUnidades() + ";" + aux.getUnidades());
 				writer.newLine();
 			}
 		}

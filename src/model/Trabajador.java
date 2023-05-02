@@ -9,7 +9,7 @@ public abstract class Trabajador {
 	// ATRIBUTOS:
 
 	protected Supermercado supermercado;
-	
+
 	protected String tipoT;
 
 	protected String usuario;
@@ -137,5 +137,49 @@ public abstract class Trabajador {
 	public String getTipo() {
 		return this.tipoT;
 	};
+	
+	public Supermercado getSupermercado() {
+		return supermercado;
+	}
+
+	public void setSupermercado(Supermercado supermercado) {
+		this.supermercado = supermercado;
+	}
+
+	public String getTipoT() {
+		return tipoT;
+	}
+
+	public void setTipoT(String tipoT) {
+		this.tipoT = tipoT;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setDNI(String dNI) {
+		DNI = dNI;
+	}
+
+	public void setSalario(float salario) {
+		this.salario = salario;
+	}
+
+	public void setHoraEntrada(int horaEntrada) {
+		this.horaEntrada = horaEntrada;
+	}
+
+	public void setHoraSalida(int horaSalida) {
+		this.horaSalida = horaSalida;
+	}
 
 }

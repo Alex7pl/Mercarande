@@ -1,19 +1,14 @@
 package view;
 
-import java.awt.FlowLayout;
 
-import javax.swing.JFrame;
+import java.awt.CardLayout;
 
-public class GerenteWindow extends JFrame {
-    public GerenteWindow() {
-        setTitle("Ventana Gerente");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLayout(new FlowLayout());
+import javax.swing.JPanel;
 
-        // Agrega los componentes de la ventana
-        // ...
+import control.Controller;
 
-        pack();
-        setLocationRelativeTo(null);
+public class GerenteWindow extends JPanel {
+    public GerenteWindow(String dniTrabajador, Controller ctrl, CardLayout cardLayout, JPanel mainPanel) {
+
     }
 }

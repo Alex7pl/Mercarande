@@ -12,8 +12,6 @@ public class Venta {
 	private String ID;
 	
 	private String IDCajero;
-	
-	private Supermercado supermercado;
 
 	private float importe;
 	
@@ -28,6 +26,8 @@ public class Venta {
 		this.ID = iD;
 		this.IDCajero = iDCajero;
 		this.importe = importe;
+		this.fecha = date;
+		this.productos = productos;
 	}
 	
 

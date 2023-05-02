@@ -30,15 +30,12 @@ public class Pedido {
 	//M�TODOS:
 	
 	public Pedido(String iDPedido, String proveedor, Categoria categoria, float precioPedido, LocalDate fechaPedido, List<Pair<String, Integer>> productos) {
-		IDPedido = iDPedido;
-	}
-	
-	public Pedido(String iDPedido2, String proveedor, int precioPedido, LocalDate date) {
-		this.IDPedido = iDPedido2;
+		this.IDPedido = iDPedido;
 		this.proveedor = proveedor;
+		this.categoria = categoria;
 		this.precioPedido = precioPedido;
-		this.productos = new ArrayList<Pair<String, Integer>>();
-		this.fechaPedido = date;
+		this.productos = productos;
+		this.fechaPedido = fechaPedido;
 		this.fechaEsperada = fechaPedido.plusDays(10);
 	}
 
