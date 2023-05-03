@@ -4,21 +4,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 
 
 import org.junit.jupiter.api.Test;
 
 import control.Controller;
+import main.Mercarande;
 
 
 
 public class ReponedorTest {
 	@Test
-	void test_1() {
+	void test_1() throws URISyntaxException {
 		
-		Controller ctrl = new Controller("C:\\Users\\alexs\\eclipse-workspace\\Mercarande\\src\\resources\\BaseDeDatos.txt");
+		ClassLoader classLoader = Mercarande.class.getClassLoader();
+		Controller ctrl = new Controller(new File(classLoader.getResource("resources\\BaseDeDatos.txt").toURI()));
 		try {
 			ctrl.cargarDatos();
 		} catch (Exception e) {

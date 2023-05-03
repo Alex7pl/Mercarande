@@ -22,11 +22,11 @@ public class Controller {
 	// Atributos
 
 	private GestionMercado gestion;
-	private String DB;
+	private File DB;
 
 	// Constructor
 
-	public Controller(String DB) {
+	public Controller(File DB) {
 
 		gestion = GestionMercado.getInstance();
 		this.DB = DB;
@@ -35,8 +35,8 @@ public class Controller {
 	public void cargarDatos() throws IOException {
 
 		try {
-
-			File archivo = new File(DB);
+			
+			File archivo = DB;
 			Scanner scanner = new Scanner(archivo);
 
 			gestion.cargarDatos(scanner);
@@ -46,7 +46,7 @@ public class Controller {
 	}
 
 	public void guardarDatos() throws Exception {
-
+		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB))) {
 
 			gestion.guardarDatos(writer);
