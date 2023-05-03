@@ -21,8 +21,9 @@ public class ReponedorTest {
 	@Test
 	void test_1() throws URISyntaxException {
 		
-		ClassLoader classLoader = Mercarande.class.getClassLoader();
-		Controller ctrl = new Controller(new File(classLoader.getResource("resources\\BaseDeDatos.txt").toURI()));
+		ClassLoader classLoader = ReponedorTest.class.getClassLoader();
+        File file = new File(classLoader.getResource("model\\BaseDeDatosPruebas.txt").toURI());
+		Controller ctrl = new Controller(file);
 		try {
 			ctrl.cargarDatos();
 		} catch (Exception e) {
@@ -32,5 +33,7 @@ public class ReponedorTest {
 		ctrl.recepcionarPedido("23456789P", "213TAUIE", "FRUTA_VERDURA");
 		
 		assertEquals(ctrl.getListaPedidos().size(), 3);
+		
+		assertEquals(ctrl.getUnidadesProducto("MAN1", "FRUTA_VERDURA", false), (54 + 23));
 	}
 }
