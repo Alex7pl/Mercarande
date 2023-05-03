@@ -7,6 +7,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import control.Controller;
@@ -44,9 +45,15 @@ public class REPReponerExistencias1 extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 String pasilloSeleccionado = (String) pasillosBox.getSelectedItem();
                 // Lógica para aceptar el producto seleccionado
-                REPReponerExistencias2 reponerPanel = new REPReponerExistencias2(pasilloSeleccionado, DNIT, ctrl, cardLayout, mainPanel);
-                mainPanel.add(reponerPanel, "REPReponerExistencias2");
-                cardLayout.show(mainPanel, "REPReponerExistencias2");
+
+                if(ctrl.getProductosID(pasilloSeleccionado).isEmpty()) {
+                	 JOptionPane.showMessageDialog(REPReponerExistencias1.this, "No existen productos en este pasillo", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+	                REPReponerExistencias2 reponerPanel = new REPReponerExistencias2(pasilloSeleccionado, DNIT, ctrl, cardLayout, mainPanel);
+	                mainPanel.add(reponerPanel, "REPReponerExistencias2");
+	                cardLayout.show(mainPanel, "REPReponerExistencias2");
+                }
             }
         });
 

@@ -74,6 +74,8 @@ public class REPRecepcionarPedido1 extends JPanel {
                 	if (opcion == JOptionPane.YES_OPTION) {		
                 		this.ctrl.recepcionarPedido(DNIT, pedido.getIDPedido(), pedido.getCategoria());
                 		JOptionPane.showMessageDialog(REPRecepcionarPedido1.this, "Pedido recepcionado", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                		String workerType = ctrl.getTrabajadorConDNI(DNIT).getClass().getSimpleName();
+    					cardLayout.show(mainPanel, workerType + "Window");
                 	}
                     
                 }
