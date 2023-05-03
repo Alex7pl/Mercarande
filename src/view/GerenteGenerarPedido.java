@@ -60,6 +60,7 @@ public class GerenteGenerarPedido extends JPanel {
 
 		proveedoresComboBox.addActionListener(e -> {
 			actualizarProductosCombo();
+			proveedoresComboBox.setEnabled(false);
 		});
 
 		// Panel de información de proveedores y sus productos
@@ -115,6 +116,7 @@ public class GerenteGenerarPedido extends JPanel {
 				String produ = ctrl.getIDProductoConNombre(prod.getSelectedItem().toString());
 				int c = (int) cantidad.getValue();
 				Pair<String, Integer> p = new Pair<>(produ, c);
+				
 				productos.add(p);
 				productosPedidoTableModel.addRow(new Object[] { produ, c });
 			}
