@@ -24,14 +24,14 @@ public class DirectorRRHH extends Trabajador {
 	}
 
 	@Override
-	public void recepcionarPedido(String idPedido) {
+	public void recepcionarPedido(String idPedido, String Categoria) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
-			Categoria categoria, List<String> productos) {
+			Categoria categoria, String[] productos) {
 		// TODO Auto-generated method stub
 
 	}
@@ -68,7 +68,7 @@ public class DirectorRRHH extends Trabajador {
 	}
 
 	@Override
-	public void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo) {
+	public void reponerExistencias(List<Pair<String, Integer>> l, String pasillo) {
 		// TODO Auto-generated method stub
 
 	}

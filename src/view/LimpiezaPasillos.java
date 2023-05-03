@@ -8,11 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class LimpiadorWindow extends JPanel {
+public class LimpiezaPasillos extends JPanel {
     private static final long serialVersionUID = 1L;
     private Controller ctrl;
 
-    public LimpiadorWindow(String dniTrabajador, Controller ctrl, CardLayout cardLayout, JPanel mainPanel) {
+    public LimpiezaPasillos(String dniTrabajador, Controller ctrl, CardLayout cardLayout, JPanel mainPanel) {
         this.ctrl = ctrl;
         setLayout(new BorderLayout());
 
@@ -44,24 +44,24 @@ public class LimpiadorWindow extends JPanel {
             gbc.anchor = GridBagConstraints.LINE_START;
             centerPanel.add(estadoLabel, gbc);
 
-            JButton limpiarButton = new JButton("Limpiar");
-            limpiarButton.addActionListener(new ActionListener() {
+            JButton solicitarLimpiezaButton = new JButton("Solicitar limpieza");
+            solicitarLimpiezaButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean limpio = ctrl.limpiarPasillo(pasillo);
+                    boolean cambiado = ctrl.cambiarPasilloASucio(pasillo);
 
-                    if (limpio) {
+                    if (cambiado) {
                         actualizarEstadoPasillo(estadoLabel, pasillo);
-                        JOptionPane.showMessageDialog(LimpiadorWindow.this, "Pasillo " + pasillo + " limpiado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(LimpiezaPasillos.this, "Solicitud de limpieza enviada para el pasillo " + pasillo + ".", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     } else {
-                        JOptionPane.showMessageDialog(LimpiadorWindow.this, "El pasillo " + pasillo + " ya estaba limpio.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(LimpiezaPasillos.this, "El pasillo " + pasillo + " ya estaba sucio.", "Aviso", JOptionPane.WARNING_MESSAGE);
                     }
                 }
             });
             gbc.gridx = 2;
             gbc.gridy = i;
             gbc.anchor = GridBagConstraints.LINE_START;
-            centerPanel.add(limpiarButton, gbc);
+            centerPanel.add(solicitarLimpiezaButton, gbc);
         }
 
         add(centerPanel, BorderLayout.CENTER);

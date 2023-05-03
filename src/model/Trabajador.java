@@ -42,32 +42,33 @@ public abstract class Trabajador {
 	}
 
 	// cualquier trabajador puede pedir que se limpie un pasillo.
-	public void solicitarLimpieza(String nombre) {
-		// busco el pasillo
-		int i = 0;
-		boolean encontrado = false;
+		public void solicitarLimpieza(String nombre) {
+			// busco el pasillo
+			int i = 0;
+			boolean encontrado = false;
 
-		while (!encontrado && i < supermercado.getListaPasillos().size()) {
-			if (nombre == supermercado.getListaPasillos().get(i).getNombre()) {
-				encontrado = true;
-				supermercado.getListaPasillos().get(i).anunciarSucio();
+			while (!encontrado && i < supermercado.getListaPasillos().size()) {
+				if (nombre == supermercado.getListaPasillos().get(i).getNombre()) {
+					encontrado = true;
+					supermercado.getListaPasillos().get(i).anunciarSucio();
 
-			} else {
-				i++;
+				} else {
+					i++;
+				}
 			}
+			;
 		}
-		;
-	}
 
 	// gerente
 	public abstract void generarPedido(List<Pair<String, Integer>> producto, String proveedor, Categoria c);
 
 	// gerente
-	public abstract void recepcionarPedido(String idPedido);
+	public abstract void recepcionarPedido(String idPedido, String Categoria);
 
 	// gerente
 	public abstract void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
-			Categoria categoria, List<String> productos);
+			Categoria categoria, String[] productos);
+		// TODO Auto-generated method stub
 
 	// gerente
 	public abstract void eliminarProveedor(String idProveedor);
@@ -91,7 +92,7 @@ public abstract class Trabajador {
 	// ...eliminar
 
 	// reponedor
-	public abstract void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo);
+	public abstract void reponerExistencias(List<Pair<String, Integer>> l, String pasillo);
 
 	// limpiador
 	public abstract void limpiar(String idPasillo);
@@ -181,5 +182,6 @@ public abstract class Trabajador {
 	public void setHoraSalida(int horaSalida) {
 		this.horaSalida = horaSalida;
 	}
+	
 
 }

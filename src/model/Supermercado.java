@@ -390,6 +390,16 @@ public class Supermercado {
 		
 	}
 	
+	public List<String> getCategoriaPasillo(){
+		
+		List<String> categorias = new ArrayList<>();
+		
+		for(Pasillo p : tienda) {
+			categorias.add(p.getNombre());
+		}
+		return categorias;
+	}
+	
 	public Producto buscarConCategoria(String id, String categoria, boolean buscaTienda) {
 		Producto p = null;
 		boolean encontrado = false;
@@ -418,7 +428,7 @@ public class Supermercado {
 			
 			while(!encontrado && i < lista.size()) {
 				
-				if(lista.get(i).getID() == id) {
+				if(lista.get(i).getID().equals(id)) {
 					encontrado = true;
 					p = lista.get(i);
 				}
@@ -504,18 +514,51 @@ public class Supermercado {
 		boolean encontrado = false;
 		int i = 0;
 		int res = 0;
-		
+
 		while (!encontrado && i < proveedores.size()) {
-			if(proveedores.get(i).getID() == id) {
-				encontrado = false;
+			if (proveedores.get(i).getID().equals(id)) {
+				encontrado = true;
 				res = i;
-			}
-			else {
+			} else {
 				i++;
 			}
 		}
-		
+
 		return res;
+	}
+
+	public List<Proveedor> getProveedores() {
+		return proveedores;
+	}
+
+	public Proveedor getProveedorPorNombre(String nombre) {
+		Proveedor p = null;
+		for (int i = 0; i < proveedores.size(); i++) {
+			if (proveedores.get(i).getNombre().equals(nombre)) {
+				p = proveedores.get(i);
+			}
+		}
+		return p;
+	}
+
+	public Proveedor getProveedorPorNIF(String nif) {
+		Proveedor p = null;
+		for (int i = 0; i < proveedores.size(); i++) {
+			if (proveedores.get(i).getNIF().equals(nif)) {
+				p = proveedores.get(i);
+			}
+		}
+		return p;
+	}
+
+	public Proveedor porID(String ID) {
+		Proveedor p = null;
+		for (int i = 0; i < proveedores.size(); i++) {
+			if (proveedores.get(i).getID().equals(ID)) {
+				p = proveedores.get(i);
+			}
+		}
+		return p;
 	}
 	public int buscaPasillo(String categoria) {
 		boolean encontrado = false;
@@ -523,9 +566,12 @@ public class Supermercado {
 		int res = 0;
 		
 		while(!encontrado && i < tienda.size()) {
-			if(tienda.get(i).getNombre() == categoria) {
+			if(tienda.get(i).getNombre().equals(categoria)) {
 				encontrado = true;
 				res = i;
+			}
+			else {
+				i++;
 			}
 		}
 		return res;
@@ -590,37 +636,96 @@ public class Supermercado {
 		
 	}
 	
-	//reviso si hay alg�n pasillo sin reponer y mando aviso al primer reponedor disponible en ese pasillo
-	public List<Producto> buscarUnidadesaCero(String pasillo) {
-		//Reviso tooodas las capacidades y ocupaciones de los pasillos:
-		//si hay alg�n producto a 0, lo mando reponer hasta cubrir la capacidad del pasillo.
-
-		//hago busqueda del pasillo
-		//solo repongo si hay algun producto a 0 en ese pasillo
-		
-		boolean encontrado = false;
-		int i = 0;
-		List<Producto> productosACero = new ArrayList<Producto>(); //Devolveré una lista con los productos que
-																//tienen cantidad = 0.
-		while (!encontrado && i < tienda.size()) {
-			if (tienda.get(i).getNombre().equals(pasillo)) {
-				encontrado = true;
-			} else {
-				i++;
-			}
-		}
-
-		for (int j = 0; j < tienda.get(i).getListaProductos().size(); j++) {
-			if (tienda.get(i).getListaProductos().get(j).getUnidades() == 0) {
-				productosACero.add(tienda.get(i).getListaProductos().get(j));
-			}
-		}
-		return productosACero;
-	}
-
 
 	public List<Pedido> getListaPedidos() {
 		// TODO Auto-generated method stub
 		return this.pedidos_pendientes;
 	}
+	
+	public List<String> getproductosID(String pasillo){
+		
+		int p = this.buscaPasillo(pasillo);
+		
+		List<String> resultado = new ArrayList<>();
+		
+		List<Producto> aux = this.tienda.get(p).getListaProductos();
+		
+		for(Producto auxP : aux) {
+			resultado.add(auxP.getID());
+		}
+		
+		return resultado;
+	}
+	
+	public List<Venta> getVentas() {
+		return this.tesoreria.getVentas();
+	}
+	
+	public List<String> getTodosProductos(){
+		
+		List<String> aux = new ArrayList<>();
+		
+		for(Pasillo p : this.tienda) {
+			for(Producto pr : p.getListaProductos()) {
+				
+				aux.add(pr.getID());
+			}
+		}
+		
+		return aux;
+	}
+	
+	public Pasillo getPasillo(String categoriaPasillo) {
+		boolean encontrado = false;
+		int i = 0;
+
+		while (!encontrado && i < getListaPasillos().size()) {
+			if (getListaPasillos().get(i).getNombre().equals(categoriaPasillo)) {
+				encontrado = true;
+				return getListaPasillos().get(i);
+			} else {
+				i++;
+			}
+		}
+		return null;
+	}
+
+	public boolean pasilloOcupado(String categoriaPasillo) {
+		return getPasillo(categoriaPasillo).getCapacidad() <= getPasillo(categoriaPasillo).getOcupacion();
+	}
+
+	public String getIDProducto(String nombre) {
+		boolean encontrado = false;
+		int i = 0;
+
+		while (!encontrado && i < tienda.size()) {
+			int j = 0;
+			while (!encontrado && j < tienda.get(i).getListaProductos().size()) {
+				if (tienda.get(i).getListaProductos().get(j).getNombre().equals(nombre)) {
+					encontrado = true;
+					return tienda.get(i).getListaProductos().get(j).getID();
+				} else {
+					j++;
+				}
+			}
+			i++;
+		}
+		return null;
+	}
+	
+	public String getIDProveedor(String nombre) {
+		boolean encontrado = false;
+		int i = 0;
+
+		while (!encontrado && i < proveedores.size()) {
+			if (proveedores.get(i).getNombre().equals(nombre)) {
+				encontrado = true;
+				return proveedores.get(i).getID();
+			} else {
+				i++;
+			}
+		}
+		return null;
+	}
+
 }

@@ -37,7 +37,7 @@ public class LoginPanel extends JPanel {
         gbc.gridy = 0;
         add(userField, gbc);
 
-        JLabel passwordLabel = new JLabel("Contraseña:");
+        JLabel passwordLabel = new JLabel("Contrasenya:");
         gbc.gridx = 0;
         gbc.gridy = 1;
         add(passwordLabel, gbc);
@@ -47,7 +47,7 @@ public class LoginPanel extends JPanel {
         gbc.gridy = 1;
         add(passwordField, gbc);
 
-        JButton loginButton = new JButton("Iniciar sesión");
+        JButton loginButton = new JButton("Iniciar sesion");
         gbc.gridx = 1;
         gbc.gridy = 2;
         loginButton.addActionListener(new ActionListener() {

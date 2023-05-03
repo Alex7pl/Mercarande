@@ -1,6 +1,8 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import resources.Pair;
@@ -40,7 +42,7 @@ public class Gerente extends Trabajador{
 	}
 
 	@Override
-	public void recepcionarPedido(String idPedido) {
+	public void recepcionarPedido(String idPedido, String Categoria) {
 		// TODO Auto-generated method stub
 		boolean encontrado = false;
 		int i=0;
@@ -66,7 +68,7 @@ public class Gerente extends Trabajador{
 	
 	@Override
 	public void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
-			Categoria categoria, List<String> productos) {
+			Categoria categoria, String[] productos) {
 		// Longitud que tendra el id del proveedor
 		int longitud = 8;
 		// caracteres que podran formar el ID
@@ -79,8 +81,11 @@ public class Gerente extends Trabajador{
 			char randomChar = caracteres.charAt(index);
 			id.append(randomChar);
 		}
-		Proveedor p = new Proveedor(id.toString(), NIF, nombre, domic, email, telefono, categoria, productos);
+		
+		Proveedor p = new Proveedor(id.toString(), NIF, nombre, domic, email, telefono, categoria,
+				new ArrayList<String>(Arrays.asList(productos)));
 		supermercado.anyadirProveedor(p);
+
 	}
 
 	@Override
@@ -117,7 +122,7 @@ public class Gerente extends Trabajador{
 	}
 
 	@Override
-	public void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo) {
+	public void reponerExistencias(List<Pair<String, Integer>> l, String pasillo) {
 		// TODO Auto-generated method stub
 		
 	}

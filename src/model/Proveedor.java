@@ -29,7 +29,8 @@ public class Proveedor {
 	
 	//M TODOS:
 
-	public Proveedor(String iD, String nIF, String nombre, String domicilioFiscal, String email, int telefono,
+	public Proveedor(
+			String iD, String nIF, String nombre, String domicilioFiscal, String email, int telefono,
 			Categoria categoria, List<String> productos) {
 		this.ID = iD;
 		this.NIF = nIF;
@@ -41,7 +42,9 @@ public class Proveedor {
 		this.categoria = categoria;
 	}
 
-
+public void setNIF(String NIF) {
+	this.NIF=NIF;
+}
 	public String getID() {
 		return ID;
 	}
@@ -131,3 +134,4 @@ public class Proveedor {
 	}
 	
 }
+

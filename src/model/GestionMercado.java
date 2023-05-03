@@ -3,6 +3,9 @@ package model;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+
+import resources.Pair;
+
 import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +19,10 @@ public class GestionMercado {
 	private GestionMercado() {
 		trabajadores = new ArrayList<Trabajador>();
 		supermer = Supermercado.getInstance();
+	}
+	
+	public Supermercado getSuper() {
+		return supermer;
 	}
 
 	public List<Trabajador> listarTrabajadores() {
@@ -149,7 +156,8 @@ public class GestionMercado {
 	public Trabajador getTrabajadorConUsuario(String user) {
 		Trabajador t = null;
 		for (int i = 0; i < trabajadores.size(); i++) {
-			if (user.equals(trabajadores.get(i).getUsuario())) {
+			String aux = trabajadores.get(i).getUsuario();
+			if (user.equals(aux)) {
 				t = trabajadores.get(i);
 			}
 		}
@@ -186,5 +194,159 @@ public class GestionMercado {
 		trabajador.setHoraSalida(salida);
 		
 		return true;
+	}
+
+	public List<String> getPasillos() {
+		// TODO Auto-generated method stub
+		return this.supermer.getCategoriaPasillo();
+	}
+	
+	public List<String> getproductosID(String pasillo) {
+		
+		return this.supermer.getproductosID(pasillo);
+	}
+	
+	public int getUnidadesProducto(String id, String categoria, boolean buscaTienda) {
+		
+		return this.supermer.buscarConCategoria(id, categoria, buscaTienda).getUnidades();
+	}
+	
+	public int getUnidadesProductoSin(String id, boolean buscaTienda) {
+		return this.supermer.buscarSinCategoria(id, buscaTienda).getUnidades();
+	}
+	
+	public void reponerExistencias(String DNI, List<Pair<String, Integer>> l, String pasillo) {
+		
+		this.getTrabajador(DNI).reponerExistencias(l, pasillo);
+	}
+	
+	public List<Pedido> getListaPedidos() {
+		// TODO Auto-generated method stub
+		return this.supermer.getListaPedidos();
+	}
+	
+	public void recepcionarPedido(String dni, String id, String Categoria) {
+		this.getTrabajador(dni).recepcionarPedido(id, Categoria);
+	}
+	
+	public List<Venta> getVentas() {
+		return this.supermer.getVentas();
+	}
+	
+	public List<String> getTodosProductos(){
+		return this.supermer.getTodosProductos();
+	}
+	
+	public void crearVenta(List<Pair<String, Integer>> productos, String dni) {
+		this.getTrabajador(dni).crearVenta(productos, dni);
+	}
+	
+	public Pasillo getPasillo(String nombre) {
+		boolean aux = false;
+		int i = 0;
+
+		while (!aux && i < supermer.getListaPasillos().size()) {
+			if (supermer.getListaPasillos().get(i).getNombre().equals(nombre)) {
+				aux = true;
+				return supermer.getListaPasillos().get(i);
+			}
+
+			i++;
+		}
+
+		return null;
+	}
+	
+	public boolean limpiarPasillo(String pasillo) {
+
+		if (!getPasillo(pasillo).isLimpio()) {
+
+			getPasillo(pasillo).limpiar();
+			return true;
+		}
+
+		return false;
+	}
+
+	public boolean estadoPasillo(String pasillo) {
+		return getPasillo(pasillo).isLimpio();
+	}
+
+	public boolean cambiarPasilloASucio(String pasillo) {
+		if (getPasillo(pasillo).isLimpio()) {
+			getPasillo(pasillo).anunciarSucio();
+			return true;
+		}
+		return false;
+	}
+
+	public boolean existeUsuraio(String user) {
+		boolean existe = false;
+		int i = 0;
+
+		while (!existe && i < trabajadores.size()) {
+			if (trabajadores.get(i).getUsuario().equals(user)) {
+				return true;
+			} else {
+				i++;
+			}
+		}
+
+		return existe;
+	}
+
+	public boolean existeTrabajadorConDNI(String dni) {
+		boolean existe = false;
+		int i = 0;
+
+		while (!existe && i < trabajadores.size()) {
+			if (trabajadores.get(i).getDNI().equals(dni)) {
+				return true;
+			} else {
+				i++;
+			}
+		}
+
+		return existe;
+	}
+
+	public void modificarProducto(String id, String marca, float precio, String nombre) {
+		Producto p = null;
+		for (int i = 0; i < supermer.getListaPasillos().size(); i++) {
+			for (int j = 0; j < supermer.getListaPasillos().get(i).getListaProductos().size(); j++) {
+				if (supermer.getListaPasillos().get(i).getListaProductos().get(j).getID().equals(id)) {
+					p = supermer.getListaPasillos().get(i).getListaProductos().get(j);
+				}
+			}
+		}
+		p.setMarca(marca);
+		p.setPrecio(precio);
+		p.setNombre(nombre);
+	}
+
+	public void modificarProveedor(String ID, String nombre, String NIF, String email, String domicilio, int telefono) {
+		Proveedor p;
+		for (int i = 0; i < supermer.getProveedores().size(); i++) {
+			if (supermer.getProveedores().get(i).getID().equals(ID)) {
+				p = supermer.getProveedores().get(i);
+				p.setEmail(email);
+				p.setNombre(nombre);
+				p.setTelefono(telefono);
+				p.setDomicilioFiscal(domicilio);
+				p.setNIF(NIF);
+			}
+		}
+	}
+
+	public boolean pasilloOcupado(String pasillo) {
+		return supermer.pasilloOcupado(pasillo);
+	}
+	
+	public String getIDProductoConNombre(String nombre) {
+		return supermer.getIDProducto(nombre);
+	}
+	
+	public String getIDProveedorConNombre(String nombre) {
+		return supermer.getIDProveedor(nombre);
 	}
 }

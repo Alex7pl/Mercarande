@@ -28,7 +28,7 @@ public class ReponedorWindow extends JPanel {
     private void initGUI() {
     
 		
-        //mainPanel.add(new ControlPanel(), BorderLayout.NORTH);
+          add(new TopPanel(ctrl.getTrabajadorConDNI(DNIT), ctrl, cardLayout, mainPanel), BorderLayout.NORTH);
     	  JPanel centerPanel = new JPanel(new GridBagLayout());
           GridBagConstraints gbc = new GridBagConstraints();
           gbc.insets = new Insets(10, 10, 10, 10);
@@ -37,6 +37,9 @@ public class ReponedorWindow extends JPanel {
           btnReponer.addActionListener(new ActionListener() {
               public void actionPerformed(ActionEvent e) {
                   // Lógica para reponer existencias
+            	  REPReponerExistencias1 reponerPanel = new REPReponerExistencias1(DNIT, ctrl, cardLayout, mainPanel);
+                  mainPanel.add(reponerPanel, "REPReponerExistencias");
+                  cardLayout.show(mainPanel, "REPReponerExistencias");
               }
           });
           gbc.gridx = 0;
@@ -47,11 +50,20 @@ public class ReponedorWindow extends JPanel {
           btnRecepcionar.addActionListener(new ActionListener() {
               public void actionPerformed(ActionEvent e) {
                   // Lógica para recepcionar pedido
+            	  REPRecepcionarPedido1 reponerPanel = new REPRecepcionarPedido1(DNIT, ctrl, cardLayout, mainPanel);
+                  mainPanel.add(reponerPanel, "REPReponer");
+                  cardLayout.show(mainPanel, "REPReponer");
               }
           });
           gbc.gridx = 0;
           gbc.gridy = 1;
           centerPanel.add(btnRecepcionar, gbc);
+          
+          btnReponer.setPreferredSize(new Dimension(200, 50));
+          btnReponer.setFont(new Font("Arial", Font.PLAIN, 15));
+
+          btnRecepcionar.setPreferredSize(new Dimension(200, 50));
+          btnRecepcionar.setFont(new Font("Arial", Font.PLAIN, 15));
         
         add(centerPanel, BorderLayout.CENTER);
         

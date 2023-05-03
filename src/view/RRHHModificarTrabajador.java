@@ -86,7 +86,7 @@ public class RRHHModificarTrabajador extends JPanel {
 		formPanel.add(new JLabel("DNI:"), gridBagConstraints);
 
 		dniTextField = new JTextField(30);
-		// dniTextField.setEditable(false);
+		dniTextField.setEditable(false);
 		gridBagConstraints.gridx = 1;
 		formPanel.add(dniTextField, gridBagConstraints);
 
@@ -120,34 +120,57 @@ public class RRHHModificarTrabajador extends JPanel {
 
 		JButton modifyButton = new JButton("Modificar");
 		modifyButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (trabajadorSeleccionado != null) {
-					// Leer los datos del formulario y actualizar el trabajador seleccionado
-					String tipoUsuario = (String) tipoUsuarioComboBox.getSelectedItem();
-					String nombre = nombreTextField.getText();
-					String dni = dniTextField.getText();
-					float salario = Float.parseFloat(salarioTextField.getText());
-					int entrada = Integer.parseInt(entradaTextField.getText());
-					int salida = Integer.parseInt(salidaTextField.getText());
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        if (trabajadorSeleccionado != null) {
+		            // Leer los datos del formulario
+		            String tipoUsuario = (String) tipoUsuarioComboBox.getSelectedItem();
+		            String nombre = nombreTextField.getText();
+		            String dni = dniTextField.getText();
+		            float salario = 0.0f;
+		            int entrada = 0;
+		            int salida = 0;
 
-					boolean modifico = ctrl.modificarTrabajador(tipoUsuario, nombre, dni, salario, entrada, salida);
+		            // Comprobar campos vacíos
+		            if (nombre.isEmpty() || dni.isEmpty() || salarioTextField.getText().isEmpty()
+		                    || entradaTextField.getText().isEmpty() || salidaTextField.getText().isEmpty()) {
+		                JOptionPane.showMessageDialog(RRHHModificarTrabajador.this, "Por favor, complete todos los campos",
+		                        "Error", JOptionPane.ERROR_MESSAGE);
+		                return;
+		            }
 
-					if (modifico) {
-						JOptionPane.showMessageDialog(RRHHModificarTrabajador.this, "Trabajador modificado con éxito",
-								"Confirmación", JOptionPane.INFORMATION_MESSAGE);
-					} else {
-						JOptionPane.showMessageDialog(RRHHModificarTrabajador.this,
-								"No se pudo modificar el trabajador. Compruebe los datos e inténtelo de nuevo.",
-								"Error", JOptionPane.ERROR_MESSAGE);
-					}
-				} else {
-					JOptionPane.showMessageDialog(RRHHModificarTrabajador.this,
-							"No hay trabajador seleccionado para modificar.", "Error", JOptionPane.ERROR_MESSAGE);
-				}
-			}
+		            // Validar y convertir los campos numéricos
+		            try {
+		                salario = Float.parseFloat(salarioTextField.getText());
+		                entrada = Integer.parseInt(entradaTextField.getText());
+		                salida = Integer.parseInt(salidaTextField.getText());
+		            } catch (NumberFormatException ex) {
+		                JOptionPane.showMessageDialog(RRHHModificarTrabajador.this,
+		                        "Ingrese valores numéricos válidos para Salario, Hora de entrada y Hora de salida",
+		                        "Error", JOptionPane.ERROR_MESSAGE);
+		                return;
+		            }
+
+		            // Realizar la modificación del trabajador seleccionado
+		            boolean modifico = ctrl.modificarTrabajador(tipoUsuario, nombre, dni, salario, entrada, salida);
+
+		            if (modifico) {
+		                JOptionPane.showMessageDialog(RRHHModificarTrabajador.this, "Trabajador modificado con éxito",
+		                        "Confirmación", JOptionPane.INFORMATION_MESSAGE);
+		            } else {
+		                JOptionPane.showMessageDialog(RRHHModificarTrabajador.this,
+		                        "No se pudo modificar el trabajador. Compruebe los datos e inténtelo de nuevo.", "Error",
+		                        JOptionPane.ERROR_MESSAGE);
+		            }
+		        } else {
+		            JOptionPane.showMessageDialog(RRHHModificarTrabajador.this, "No hay trabajador seleccionado para modificar.",
+		                    "Error", JOptionPane.ERROR_MESSAGE);
+		        }
+		    }
 		});
 		buttonPanel.add(modifyButton);
+
+
 
 		JButton deleteButton = new JButton("Eliminar");
 		deleteButton.setForeground(Color.RED);

@@ -41,6 +41,9 @@ public class Producto {
 		this.unidades = p.getUnidades();
 	}
 	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 	
 	public String getID() {
 		return ID;
@@ -87,7 +90,7 @@ public class Producto {
 	}
 
 	public void setUnidades(int unidades) {
-		this.unidades = unidades;
+		this.unidades += unidades;
 	}
 
 }

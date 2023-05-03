@@ -85,9 +85,12 @@ public class Pasillo {
 		int i = 0;
 		
 		while(!encontrado && i < this.listaProductos.size()) {
-			if(listaProductos.get(i).getID() == id) {
+			if(listaProductos.get(i).getID().equals(id)) {
 				encontrado = true;
 				p = listaProductos.get(i);
+			}
+			else {
+				i++;
 			}
 		}
 		

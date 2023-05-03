@@ -40,6 +40,7 @@ public class Cajero extends Trabajador{
 		while(index < productos.size()) {
 			Producto prod = supermercado.buscarSinCategoria(productos.get(index).getFirst(), true);
 			precioVenta = precioVenta + productos.get(index).getSecond() * prod.getPrecio();
+			index++;
 		}
 		
 		String id_v =id.toString();
@@ -57,7 +58,7 @@ public class Cajero extends Trabajador{
 		for(int i = 0; i < v.getProductos().size(); i++) {
 			Producto p = supermercado.buscarSinCategoria(v.getProductos().get(i).getFirst(), true);
 			if(p.getUnidades() > v.getProductos().get(i).getSecond()) {
-				p.setUnidades(p.getUnidades() - v.getProductos().get(i).getSecond());
+				p.setUnidades(v.getProductos().get(i).getSecond() * (-1));
 				String pasillo = p.getCategoria();
 				
 				/*
@@ -101,12 +102,6 @@ public class Cajero extends Trabajador{
 		
 	}
 
-	public void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo) {
-		// TODO Auto-generated method stub
-		
-		List<Producto> lista = pasillo.getListaProductos();
-		
-	}
 	public void limpiar(String idPasillo) {
 		
 
@@ -116,7 +111,7 @@ public class Cajero extends Trabajador{
 		
 	}
 	
-	public void recepcionarPedido(String idPedido) {
+	public void recepcionarPedido(String idPedido, String Categoria) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -129,7 +124,7 @@ public class Cajero extends Trabajador{
 
 	@Override
 	public void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
-			Categoria categoria, List<String> productos) {
+			Categoria categoria, String[] productos) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -164,6 +159,13 @@ public class Cajero extends Trabajador{
 	public Trabajador getTrabajador(String DNI) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public void reponerExistencias(List<Pair<String, Integer>> l, String pasillo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

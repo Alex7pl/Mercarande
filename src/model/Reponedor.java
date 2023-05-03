@@ -21,7 +21,7 @@ public class Reponedor extends Trabajador{
 	}
 
 		@Override
-	public void recepcionarPedido(String idPedido) {
+	public void recepcionarPedido(String idPedido, String Categoria) {
 			int i = 0;
 			boolean encontrado = false;
 			while (!encontrado && i < supermercado.getListaPedidos().size()) {
@@ -29,8 +29,8 @@ public class Reponedor extends Trabajador{
 				if (p.getIDPedido().equals(idPedido)) {
 					encontrado = true;
 					for (int j = 0; j < p.getProductos().size(); j++)
-						supermercado.buscarSinCategoria(p.getProductos().get(j).getFirst(), false)
-								.setUnidades(p.getProductos().get(j).getSecond());
+						supermercado.buscarConCategoria(p.getProductos().get(j).getFirst(), Categoria, false).setUnidades(p.getProductos().get(j).getSecond());
+					supermercado.getListaPedidos().remove(i);
 
 				} else {
 					i++;
@@ -62,25 +62,17 @@ public class Reponedor extends Trabajador{
 
 	}
 	@Override
-	public void reponerExistencias(List<Pair<String, Integer>> l, Pasillo pasillo) {
-		// TODO Auto-generated method stub
-		/*int i=0;
-		boolean encontrado = false;
-		while (i<)
-			*/
+	public void reponerExistencias(List<Pair<String, Integer>> l, String pasillo) {
+
 		for (int i=0;i<l.size();i++) {
-			String categoria = pasillo.getNombre();
 			int rep ;
-			Producto p = supermercado.buscarConCategoria(l.get(i).getFirst(), categoria, false);
-			if (p.getUnidades()>l.get(i).getSecond()) {
-				rep = l.get(i).getSecond();
-				p.setUnidades(l.get(i).getSecond() * -1);
-			}
-			else {
-				rep = p.getUnidades();
-				p.setUnidades(rep*-1);
-			}
-			Producto pTienda = supermercado.buscarConCategoria(l.get(i).getFirst(), categoria, true);
+			Producto p = supermercado.buscarConCategoria(l.get(i).getFirst(), pasillo, false);
+			rep = l.get(i).getSecond();
+			int repN = rep * (-1);
+			p.setUnidades(repN);
+
+	
+			Producto pTienda = supermercado.buscarConCategoria(l.get(i).getFirst(), pasillo, true);
 			pTienda.setUnidades(rep);
 		}
 
@@ -100,7 +92,7 @@ public class Reponedor extends Trabajador{
 
 	@Override
 	public void anyadirProveedor(String NIF, String nombre, String domic, String email, int telefono,
-			Categoria categoria, List<String> productos) {
+			Categoria categoria, String[] productos) {
 		// TODO Auto-generated method stub
 
 	}
