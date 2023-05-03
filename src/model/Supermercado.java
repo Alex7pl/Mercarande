@@ -456,7 +456,7 @@ public class Supermercado {
 				List<Producto> l = tienda.get(i).getListaProductos();
 				
 				while(!encontrado && j < l.size()) {
-					if(l.get(j).getID() == id) {
+					if(l.get(j).getID().equals(id)) {
 						encontrado = true; 
 						p = l.get(j);
 					}

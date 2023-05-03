@@ -178,21 +178,26 @@ public class GestionMercado {
         return Collections.unmodifiableList(trabajadores);
     }
 	
-	public boolean modificarTrabajador(String tipoUsuario, String nombre, String dni, float salary, int entrada, int salida){
-		
+	public boolean modificarTrabajador(String tipoUsuario, String nombre, String dni, float salary, int entrada,
+			int salida) {
+
 		Trabajador trabajador = getTrabajador(dni);
-		
-		if(trabajador == null) {
+
+		if (trabajador == null) {
 			return false;
 		}
-		
-		trabajador.setTipoT(tipoUsuario);
-		trabajador.setNombre(nombre);
-		trabajador.setDNI(dni);
-		trabajador.setSalario(salary);
-		trabajador.setHoraEntrada(entrada);
-		trabajador.setHoraSalida(salida);
-		
+
+		if (!tipoUsuario.equals(trabajador.getTipo())) {
+			nuevoTrabajador(tipoUsuario, trabajador.getUsuario(), trabajador.getContrasena(), nombre, dni, salary, entrada, salida);
+			trabajadores.remove(trabajador);
+			
+		} else {
+			trabajador.setNombre(nombre);
+			trabajador.setSalario(salary);
+			trabajador.setHoraEntrada(entrada);
+			trabajador.setHoraSalida(salida);
+		}
+
 		return true;
 	}
 

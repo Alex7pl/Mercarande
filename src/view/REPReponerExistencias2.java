@@ -98,6 +98,8 @@ public class REPReponerExistencias2 extends JPanel {
             
             this.ctrl.reponerExistencias(DNIT, seleccionados, pasR);
             JOptionPane.showMessageDialog(REPReponerExistencias2.this, "Existencias añadidas", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+            String workerType = ctrl.getTrabajadorConDNI(DNIT).getClass().getSimpleName();
+			cardLayout.show(mainPanel, workerType + "Window");
         });
 
         // Agregar el botón Aceptar al panel
