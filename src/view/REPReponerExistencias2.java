@@ -14,17 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
-import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-
 import control.Controller;
 import resources.Pair;
 
@@ -99,7 +91,7 @@ public class REPReponerExistencias2 extends JPanel {
             this.ctrl.reponerExistencias(DNIT, seleccionados, pasR);
             JOptionPane.showMessageDialog(REPReponerExistencias2.this, "Existencias añadidas", "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
             String workerType = ctrl.getTrabajadorConDNI(DNIT).getClass().getSimpleName();
-			cardLayout.show(mainPanel, workerType + "Window");
+			cardLayout.show(mainPanel, workerType + "Window"); 
         });
 
         // Agregar el botón Aceptar al panel

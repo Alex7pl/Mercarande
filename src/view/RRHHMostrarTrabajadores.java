@@ -9,9 +9,12 @@ import java.util.List;
 
 public class RRHHMostrarTrabajadores extends JPanel {
     private static final long serialVersionUID = 1L;
-    private Controller ctrl;
-    private CardLayout cardLayout;
-    private JPanel mainPanel;
+    @SuppressWarnings("unused")
+	private Controller ctrl;
+    @SuppressWarnings("unused")
+	private CardLayout cardLayout;
+    @SuppressWarnings("unused")
+	private JPanel mainPanel;
 
     public RRHHMostrarTrabajadores(String dniTrabajador, Controller ctrl, CardLayout cardLayout, JPanel mainPanel) {
         this.ctrl = ctrl;

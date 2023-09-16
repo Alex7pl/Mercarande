@@ -4,14 +4,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import control.Controller;
 
 public class ReponedorWindow extends JPanel {
     
-    private Controller ctrl;
+	private static final long serialVersionUID = 1L;
+	private Controller ctrl;
     private String DNIT;
     private CardLayout cardLayout;
     private JPanel mainPanel;

@@ -4,13 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
 import control.Controller;
-import resources.Pair;
+
 
 public class LimpiadorTest {
 	

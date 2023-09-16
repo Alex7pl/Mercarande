@@ -9,10 +9,14 @@ import java.awt.event.ActionListener;
 
 public class RRHHNuevoTrabajador extends JPanel {
     private static final long serialVersionUID = 1L;
-    private String dniTrabajador;
-    private Controller ctrl;
-    private CardLayout cardLayout;
-    private JPanel mainPanel;
+    @SuppressWarnings("unused")
+	private String dniTrabajador;
+    @SuppressWarnings("unused")
+	private Controller ctrl;
+    @SuppressWarnings("unused")
+	private CardLayout cardLayout;
+    @SuppressWarnings("unused")
+	private JPanel mainPanel;
 
     public RRHHNuevoTrabajador(String dniTrabajador, Controller ctrl, CardLayout cardLayout, JPanel mainPanel) {
         this.ctrl = ctrl;

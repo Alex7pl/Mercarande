@@ -8,15 +8,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import control.Controller;
-import model.Categoria;
 import model.Proveedor;
-import model.Trabajador;
 
 public class GerenteMostrarProveedores extends JPanel {
     private static final long serialVersionUID = 1L;
-    private Controller ctrl;
-    private CardLayout cardLayout;
-    private JPanel mainPanel;
+    @SuppressWarnings("unused")
+	private Controller ctrl;
+    @SuppressWarnings("unused")
+	private CardLayout cardLayout;
+    @SuppressWarnings("unused")
+	private JPanel mainPanel;
 
     public GerenteMostrarProveedores(String dniTrabajador, Controller ctrl, CardLayout cardLayout, JPanel mainPanel) {
         this.ctrl = ctrl;

@@ -10,10 +10,14 @@ import java.awt.event.ActionListener;
 
 public class DirectorRRHHWindow extends JPanel {
     private static final long serialVersionUID = 1L;
-    private String dni;
-    private Controller ctrl;
-    private CardLayout cardLayout;
-    private JPanel mainPanel;
+    @SuppressWarnings("unused")
+	private String dni;
+    @SuppressWarnings("unused")
+	private Controller ctrl;
+    @SuppressWarnings("unused")
+	private CardLayout cardLayout;
+    @SuppressWarnings("unused")
+	private JPanel mainPanel;
 
     public DirectorRRHHWindow(String dni, Controller ctrl, CardLayout cardLayout, JPanel mainPanel) {
         this.dni = dni;

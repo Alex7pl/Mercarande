@@ -10,7 +10,6 @@ import javax.swing.JTable;
 
 import control.Controller;
 import model.Pedido;
-import model.Producto;
 import resources.Pair;
 
 public class GerenteMostrarPedidos extends JPanel {

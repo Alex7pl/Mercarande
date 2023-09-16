@@ -1,20 +1,16 @@
 package model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
 import control.Controller;
-import main.Mercarande;
 import resources.Pair;
 
 
@@ -63,10 +59,10 @@ public class GerenteTest {
 	assertEquals(ctrl.getProveedores().size(),4);
 	
 	
-	List<Pair<String,Integer>>pares = new ArrayList();
-	Pair p = new Pair("MAN1", 5);
+	List<Pair<String,Integer>>pares = new ArrayList<Pair<String, Integer>>();
+	Pair<String, Integer> p = new Pair<String, Integer>("MAN1", 5);
 	pares.add(p);
-	Pair pa = new Pair("PLA", 6);
+	Pair<String, Integer> pa = new Pair<String, Integer>("PLA", 6);
 	pares.add(pa);
 	
 	gerente.generarPedido(pares,"AsociadosSL",Categoria.valueOf("FRUTA_VERDURA"));

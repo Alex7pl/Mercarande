@@ -7,7 +7,8 @@ import java.awt.*;
 
 public class MainWindow extends JFrame {
     private static final long serialVersionUID = 1L;
-    private Controller ctrl;
+    @SuppressWarnings("unused")
+	private Controller ctrl;
     private CardLayout cardLayout;
     private JPanel mainPanel;
 

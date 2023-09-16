@@ -3,7 +3,6 @@ package view;
 import control.Controller;
 import model.Categoria;
 import model.Producto;
-import model.Proveedor;
 import model.Trabajador;
 
 import javax.swing.*;
@@ -16,7 +15,9 @@ import java.util.List;
 public class GerenteModificarProducto extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Controller ctrl;
+	@SuppressWarnings("unused")
 	private CardLayout cardLayout;
+	@SuppressWarnings("unused")
 	private JPanel mainPanel;
 	private JComboBox<String> productosComboBox;
 	private Producto productosSeleccionado;
@@ -25,6 +26,7 @@ public class GerenteModificarProducto extends JPanel {
 	private JTextField IDProveedorTextField;
 	private JTextField marcaTextField;
 	private JTextField precioTextField;
+	@SuppressWarnings("unused")
 	private JTextField NIFTextField;
 	private JTextField categoriaTextField;
 	private JTextField unidadesTextField;
@@ -184,7 +186,7 @@ public class GerenteModificarProducto extends JPanel {
 	}
 
 	private List<Producto> listaProductosActualizada() {
-		List<Producto>p = new ArrayList();
+		List<Producto>p = new ArrayList<Producto>();
 		for (int i=0;i<ctrl.getTienda().size();i++) {
 			for (int j=0;j<ctrl.getTienda().get(i).getListaProductos().size();j++) {
 				p.add(ctrl.getTienda().get(i).getListaProductos().get(j));
@@ -193,6 +195,7 @@ public class GerenteModificarProducto extends JPanel {
 		return p;
 	}
 
+	@SuppressWarnings("unused")
 	private void actualizarDesplegable() {
 		productosComboBox.removeAllItems();
 		List<Trabajador> trabajadores = ctrl.getTrabajadores();

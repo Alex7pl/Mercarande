@@ -1,21 +1,21 @@
 package view;
 
 import control.Controller;
-import model.Categoria;
 import model.Pasillo;
 import model.Producto;
-import model.Trabajador;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.util.List;
 
 public class GerenteMostrarProductos extends JPanel {
     private static final long serialVersionUID = 1L;
-    private Controller ctrl;
-    private CardLayout cardLayout;
-    private JPanel mainPanel;
+    @SuppressWarnings("unused")
+	private Controller ctrl;
+    @SuppressWarnings("unused")
+	private CardLayout cardLayout;
+    @SuppressWarnings("unused")
+	private JPanel mainPanel;
     private List<Pasillo>tienda;
     private List<Producto>productos;
     

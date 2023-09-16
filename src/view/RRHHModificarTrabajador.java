@@ -12,7 +12,9 @@ import java.util.List;
 public class RRHHModificarTrabajador extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Controller ctrl;
+	@SuppressWarnings("unused")
 	private CardLayout cardLayout;
+	@SuppressWarnings("unused")
 	private JPanel mainPanel;
 	private JComboBox<String> trabajadoresComboBox;
 	private Trabajador trabajadorSeleccionado;

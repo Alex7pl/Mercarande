@@ -7,14 +7,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class TopPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("unused")
 	private Trabajador trabajador;
+	@SuppressWarnings("unused")
 	private Controller ctrl;
+	@SuppressWarnings("unused")
 	private CardLayout cardLayout;
+	@SuppressWarnings("unused")
 	private JPanel mainPanel;
 
 	public TopPanel(Trabajador trabajador, Controller ctrl, CardLayout cardLayout, JPanel mainPanel) {

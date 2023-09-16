@@ -3,7 +3,6 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,13 +11,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import control.Controller;
 
 public class CajeroWindow  extends JPanel {
 	
+	private static final long serialVersionUID = 1L;
 	private Controller ctrl;
 	private String DNIT;
 	private CardLayout cardLayout;

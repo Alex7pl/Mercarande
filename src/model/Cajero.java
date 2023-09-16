@@ -1,14 +1,10 @@
 	package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import resources.Pair;
 
-
-//IMPORTS
-import model.Pedido;
 
 public class Cajero extends Trabajador{
 
@@ -59,18 +55,8 @@ public class Cajero extends Trabajador{
 			Producto p = supermercado.buscarSinCategoria(v.getProductos().get(i).getFirst(), true);
 			if(p.getUnidades() > v.getProductos().get(i).getSecond()) {
 				p.setUnidades(v.getProductos().get(i).getSecond() * (-1));
-				String pasillo = p.getCategoria();
-				
-				/*
-				int index = 0;
-				boolean encontrado = false;
-				while(!encontrado && index < supermercado.getListaPasillos().size()) {
-					if(pasillo == supermercado.getListaPasillos().get(index).getNombre()) {
-						supermercado.getListaPasillos().get(index).reducirOcupacion(v.getProductos().get(i).getSecond());
-					}
-				}
-				*/
-				
+				@SuppressWarnings("unused")
+				String pasillo = p.getCategoria();			
 			}
 			else {
 				throw new IllegalArgumentException("No hay unidades suficientes");
