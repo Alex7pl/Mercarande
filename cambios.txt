@@ -48,4 +48,4 @@ CAMBIOS ALEX EN:
 -Pedido (Arreglado)
 -Supermercado (Arreglado)
 
-Funcionalidad TopPanel: Añadido poder guardar los datos al cerrar la sesión
+Funcionalidad TopPanel: Anadido poder guardar los datos al cerrar la sesión
